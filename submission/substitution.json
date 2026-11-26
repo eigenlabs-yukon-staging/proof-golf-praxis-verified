@@ -1,9 +1,103 @@
 {
   "format": "paper-dag-substitution/1",
   "base": "c11e19f1da0f93daaf309da999a465e2ea3d1f7f24761e9b5776ef7108e435d4",
-  "title": "Baseline: the paper as published, nothing removed, nothing added",
-  "remove": [],
-  "add": [],
-  "edges": [],
-  "discharge": []
+  "title": "Share fiber counting and retain the required ledger bound",
+  "remove": [
+    "lem:we-hiding",
+    "lem:rank-one",
+    "prop:hs-dimension",
+    "ext:hs",
+    "lem:gp-rank",
+    "ext:odl",
+    "lem:ledger"
+  ],
+  "add": [
+    {
+      "id": "new:fiber-count",
+      "kind": "lemma",
+      "label": "Fiber counting",
+      "name": "Fiber counting by free coordinates",
+      "statement": "For any rank-$d$ lattice $\\Theta\\subseteq\\mathbb Z^I$ with basis matrix $B$ and the uniform box sampler on $\\{2,\\ldots,g+1\\}^I$, its largest fiber density is at most $g^{-d}$. For every stack $\\mathbf W$ with either sampler, $\\operatorname{gp}(\\mathbf W)\\le g^{-\\operatorname{rank}\\mathbf W}$, and $\\operatorname{gp}(v^\\top)\\ge\\operatorname{gp}(\\mathbf W)$ for each vector $v$ in its row space. In the lattice case let $A=B^\\top$. In the stack case let $A$ be the vertical concatenation of the $W_c$, omitting column $0$ if it is zero. In each case the retained tuple consists of the sampled coordinates indexed by the columns of $A$, with original indices. Write $m$ for the number of retained coordinates.",
+      "proof": "In the centered sampler, given the positive-index draws, $r_0$ is uniform on $g$ consecutive integers because its defining formula translates the independent uniform $r_\\star$.\nEvery list of $g$ consecutive integers has distinct residues modulo $q$ because $g<q$.\nThe product rule for probabilities gives each retained tuple in the support mass $g^{-m}$, using the uniform positive-index draws and the uniform conditional law at index $0$ whenever retained.\nChoose $\\operatorname{rank} A$ independent columns, including column $0$ whenever retained in the stack case.\nOn any fiber of $A$ the chosen coordinates are determined by the other coordinates by linear independence of the chosen columns.\nThe other coordinates have at most $g^{m-\\operatorname{rank} A}$ tuples because each ranges over $\\{2,\\ldots,g+1\\}$.\nDividing by $g^m$ bounds the mass of each fiber by $g^{-\\operatorname{rank} A}$.\nFor a vector $v$ in the stack row space, $v^\\top r$ is a linear image of the stack output.\nThe image of a most probable stack output has probability at least that output's probability.",
+      "explain": "The lattice and stack bounds both count the free coordinates of a fiber."
+    },
+    {
+      "id": "new:ledger-interval",
+      "kind": "lemma",
+      "label": "Ledger interval bound",
+      "name": "Ledger bound on the query interval",
+      "statement": "Let $U=2^{\\lambda+1}$, and extend $E$ to real inputs by its defining polynomial. Under (P5), for every $t\\in[0,1]$, $E(2+t(U-2))\\le 2^{-\\lambda}+t(1-2^{-\\lambda})$.",
+      "proof": "The coefficient $a$ of $u^2$ in $E(u)$ is $(\\theta+10\\varepsilon_f)/2$ by the formula for $E$.\nIt is nonnegative because $\\theta>0$ and $q>D$.\nExpanding the quadratic gives $E(2+t(U-2))\\le E(2)+t(E(U)-E(2))$, with nonnegative gap $a t(1-t)(U-2)^2$.\nBy (P5), $E(2)+t(E(U)-E(2))\\le2^{-\\lambda}+t(1-2^{-\\lambda})$.",
+      "explain": "Only the ledger bound on the query interval is used downstream."
+    }
+  ],
+  "edges": [
+    {
+      "from": "blob:stacks-gp",
+      "to": "new:fiber-count",
+      "kind": "background"
+    },
+    {
+      "from": "blob:sampler-search",
+      "to": "new:fiber-count",
+      "kind": "background"
+    },
+    {
+      "from": "blob:lattices",
+      "to": "new:fiber-count",
+      "kind": "background"
+    },
+    {
+      "from": "blob:bound-e",
+      "to": "new:ledger-interval",
+      "kind": "background"
+    },
+    {
+      "from": "blob:admissibility",
+      "to": "new:ledger-interval",
+      "kind": "background"
+    },
+    {
+      "from": "blob:enc",
+      "to": "new:ledger-interval",
+      "kind": "background"
+    },
+    {
+      "from": "blob:stacks-gp",
+      "to": "new:ledger-interval",
+      "kind": "background"
+    }
+  ],
+  "discharge": [
+    {
+      "edge": [
+        "lem:gp-rank",
+        "lem:heavy"
+      ],
+      "by": [
+        "new:fiber-count"
+      ],
+      "argument": "At rank at least four the bound is at most g^(-4) since g is at least one. The P3 hypothesis includes I5, which gives g^(-4) < μ_tr = θ − 100ε_tr < θ. The row-space inequality applies to the kernel vector as a row-space vector, and heaviness is the hypothesis gp(W) > θ."
+    },
+    {
+      "edge": [
+        "ext:odl",
+        "lem:inverse"
+      ],
+      "by": [
+        "new:fiber-count"
+      ],
+      "argument": "The lattice clause is the claimed rank-d fiber-density bound with the specified uniform box law."
+    },
+    {
+      "edge": [
+        "lem:ledger",
+        "thm:extraction"
+      ],
+      "by": [
+        "new:ledger-interval"
+      ],
+      "argument": "For λ > 0, set t = Q/(2^λ−1), which belongs to [0,1] for each integer 0 ≤ Q < 2^λ. Then 2+t(U−2) = 2Q+2 and the bound is 2^(−λ)+Q/2^λ. If λ = 0 the only possible Q is zero and t = 0 gives precisely the required bound. The hypothesis (P5) is the same."
+    }
+  ]
 }
