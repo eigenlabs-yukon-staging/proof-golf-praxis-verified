@@ -1,9 +1,473 @@
 {
   "format": "paper-dag-substitution/1",
   "base": "c11e19f1da0f93daaf309da999a465e2ea3d1f7f24761e9b5776ef7108e435d4",
-  "title": "Baseline: the paper as published, nothing removed, nothing added",
-  "remove": [],
-  "add": [],
-  "edges": [],
-  "discharge": []
+  "title": "Test QAP quotient divisibility by residual evaluations",
+  "remove": [
+    "lem:we-hiding",
+    "lem:rank-one",
+    "prop:hs-dimension",
+    "ext:hs",
+    "lem:gp-rank",
+    "ext:odl",
+    "lem:classification",
+    "lem:half",
+    "lem:moore",
+    "lem:init",
+    "lem:heavy",
+    "prop:reduction-time",
+    "lem:charged",
+    "lem:names",
+    "lem:qap",
+    "ext:aur"
+  ],
+  "add": [
+    {
+      "id": "new:fiber-count",
+      "kind": "lemma",
+      "label": "Fiber counting",
+      "name": "Fiber counting by free coordinates",
+      "statement": "For any rank-$d$ lattice $\\Theta\\subseteq\\mathbb Z^I$ with basis matrix $B$ and the uniform box sampler on $\\{2,\\ldots,g+1\\}^I$, its largest fiber density is at most $g^{-d}$. For every stack $\\mathbf W$ with either sampler, $\\operatorname{gp}(\\mathbf W)\\le g^{-\\operatorname{rank}\\mathbf W}$, and $\\operatorname{gp}(v^\\top)\\ge\\operatorname{gp}(\\mathbf W)$ for each vector $v$ in its row space. In the lattice case let $A=B^\\top$. In the stack case let $A$ be the vertical concatenation of the $W_c$, omitting column $0$ if it is zero. In each case the retained tuple consists of the sampled coordinates indexed by the columns of $A$, with original indices. Write $m$ for the number of retained coordinates.",
+      "proof": "In the centered sampler, given the positive-index draws, $r_0$ is uniform on $g$ consecutive integers because its defining formula translates the independent uniform $r_\\star$.\nEvery list of $g$ consecutive integers has distinct residues modulo $q$ because $g<q$.\nThe product rule for probabilities gives each retained tuple in the support mass $g^{-m}$, using the uniform positive-index draws and the uniform conditional law at index $0$ whenever retained.\nChoose $\\operatorname{rank} A$ independent columns, including column $0$ whenever retained in the stack case.\nOn any fiber of $A$ the chosen coordinates are determined by the other coordinates by linear independence of the chosen columns.\nThe other coordinates have at most $g^{m-\\operatorname{rank} A}$ tuples because each ranges over $\\{2,\\ldots,g+1\\}$.\nDividing by $g^m$ bounds the mass of each fiber by $g^{-\\operatorname{rank} A}$.\nFor a vector $v$ in the stack row space, $v^\\top r$ is a linear image of the stack output.\nThe image of a most probable stack output has probability at least that output's probability.",
+      "explain": "The lattice and stack bounds both count the free coordinates of a fiber."
+    },
+    {
+      "id": "new:tensor-witness",
+      "kind": "lemma",
+      "label": "Witness from a tied tensor",
+      "name": "A tied low-rank passing stack supplies a witness",
+      "statement": "Every nonzero usable stack of rank at most three whose row space contains no kernel vector has a witness of $S$ in its row space.",
+      "proof": "Work over $K=\\mathbb F_{q^n}$, with $a=n/2-1$, $b=n/2$, $c=n/2+1$ and $I=\\{a,b,c\\}$.\nSet $(Z_a,Z_b,Z_c)=(W_U,W_V,\\sigma^c(W_U))$.\nWriting $z_s=\\sigma^s(z)$, the three defining tie polynomials reduce modulo $P$ to $Z_s z_t-Z_t z_s$ for the pairs $(a,b),(a,c),(b,c)$ by the substitution action of $\\sigma$.\nThus $Z_s z_t=Z_t z_s$ for all three pairs.\nChoose a basis matrix $B$ for the row space $\\mathcal V$ of dimension $d$, and write its rows as $u_i^\\top$.\nAs linear combinations of symmetric stack matrices, the $Z_s$ have both row and column spaces in the extension of $\\mathcal V$.\nTake a base-field left inverse $C$ of $B$ and set $M_s=C Z_s C^\\top$.\nThen $B M_s B^\\top=Z_s$ because the projection $BC$ fixes the row and column spaces of $Z_s$.\nAt least one of $M_a,M_b$ is nonzero since recovering $Z_a,Z_b$ by this factorization recovers all stack coefficients.\nLet $h_s=B^\\top z_s$ for all $s$.\nSince $B$ has base-field entries, $h_s=\\sigma^s(h_0)$.\nThe entries of $h_0$ are linearly independent over $\\mathbb F_q$ since a relation on them gives a vector of $\\mathcal V$ in the kernel of $z$.\nThe entries of $h_a$ remain independent over $\\mathbb F_q$ since $\\sigma^a$ is an automorphism fixing the base field.\nThe Moore determinant demand makes the first $d$ of $h_a,h_b,h_c$ a basis, as its matrix has the successive Frobenius powers of the entries of $h_a$ as its rows.\nBy injectivity of $B$, the reduced ties give $M_s h_t=M_t h_s$.\nFor a relation $\\sum_{s\\in I} \\lambda_s h_s=0$, the ties give $(\\sum_s \\lambda_s M_s) h_t=M_t\\sum_s \\lambda_s h_s=0$ for each $t$.\nThe spanning property then gives $\\sum_s \\lambda_s M_s=0$.\nConsequently $h_s\\mapsto M_s$ defines a linear map $M$.\nThe trilinear form $L(x,y,z')=y^\\top M(x)z'$ is symmetric in its last two arguments by symmetry of the matrices.\nExtending the reduced ties by bilinearity gives $M(x)z^{\\prime}=M(z^{\\prime})x$ for all $x,z^{\\prime}$.\nFor each $i>0$ the Booleanity test yields $L(h_s,u_i,u_i-u_0)=0$ since it holds on the linear combination of stack matrices $Z_s$.\nBy spanning, $L(x,u_i,u_i-u_0)=0$ for every $x$.\nAlso $Z_a=\\sigma^a(Z_c)$ by $a+c=n$.\nSince $Z_b=W_V$ only has even powers of $T$, $\\sigma^b(Z_b)=Z_b$ by $\\omega^b=-1$.\nApplying $Z\\mapsto C Z C^\\top$ over the base field gives $M_s=\\sigma^s(M_{n-s})$ for $s=a,b$.\nSuppose first that $u_0=0$ and choose a basis $(l_1,\\ldots,l_d)$ from the rows $u_i$.\nThe Booleanity identities give $L(x,l_i,l_i)=0$ for all $x$ in this case.\nBy symmetry, all tensor coordinates with a repeated index vanish.\nIf $d<3$ there are no other coordinates, so $L=0$.\nFor $d=3$ the off-diagonal entries of $M_s$ on basis pairs are $t=L(l_1,l_2,l_3)$ times the coordinate of $h_s$ in the complementary slot, by symmetry.\nComparing those coordinates in $M_s=\\sigma^s(M_{n-s})$ gives $t h_s=\\sigma^s(t)h_0$ for $s=a,b$.\nIndependence of $h_a,h_b$ in dimension three forces $t=0$ by these equations.\nSo $L=0$ also in dimension three.\nThe zero form is impossible since at least one of $M_a,M_b$ is nonzero, so $u_0\\ne0$.\nExtend $l_0=u_0$ to a basis using rows $l_i=u_{j_i}$ for $1\\le i<d$.\nFor $\\delta\\in\\{0,1\\}^{d-1}$ define $p_\\delta$ by $l_0^\\top p_\\delta=1$ and $l_i^\\top p_\\delta=\\delta_i$, and set $w_\\delta=B p_\\delta$.\nFor $i>0$ the Booleanity identities give $L(x,l_i,l_i)=L(x,l_i,l_0)$.\nBy symmetry and these reductions, each tensor coordinate depends only on the set of positive indices it contains.\nOn the Boolean cube the squarefree monomials are a basis of functions by triangularity under subset inclusion.\nThe form $(x,y,z^{\\prime})\\mapsto(x^\\top p_\\delta)(y^\\top p_\\delta)(z^{\\prime}^\\top p_\\delta)$ has coordinate $\\prod_{i\\in A}\\delta_i$ at a basis triple with positive index set $A$.\nThus these forms span the tensors with the stated coordinates by invertibility of the evaluation matrix.\nWrite $M(x)=\\sum_\\delta C_\\delta (x^\\top p_\\delta)p_\\delta p_\\delta^\\top$ using this expansion.\nThe matrices $p_\\delta p_\\delta^\\top$ are independent since their evaluations on pairs of basis rows give all the same squarefree monomials for $d-1\\le 2$.\nPut $z_\\delta=h_0^\\top p_\\delta$, which is nonzero since $w_\\delta$ has coordinate zero equal to $1$ and $\\mathcal V$ has no kernel vector.\nComparing coefficients in $M_s=\\sigma^s(M_{n-s})$ now gives $C_\\delta\\sigma^s(z_\\delta)=\\sigma^s(C_\\delta) z_\\delta$ for $s=a,b$.\nDividing the coefficient equations gives $x_\\delta=\\sigma^a(x_\\delta)=\\sigma^b(x_\\delta)$ for $x_\\delta=C_\\delta/z_\\delta$.\nApplying $\\sigma^{-a}$ to $\\sigma^a(x_\\delta)=\\sigma^b(x_\\delta)$ gives $x_\\delta=\\sigma(x_\\delta)$.\nWrite $\\chi_\\delta=C_\\delta/z_\\delta\\in\\mathbb F_q$ by the fixed field of Frobenius.\nAny linear test $\\varrho$ with base-field coefficients vanishes on $Z_a,Z_b,Z_c$ because it vanishes on every stack entry.\nThe resulting equations are $h_0^\\top A_\\varrho h_s=0$ for $s=a,b,c$, with $A_\\varrho=\\sum_\\delta\\chi_\\delta\\varrho(w_\\delta w_\\delta^\\top)p_\\delta p_\\delta^\\top$ by the expansion.\nSpanning gives $h_0^\\top A_\\varrho=0$.\nThe base-field entries of $A_\\varrho$ and independence of the entries of $h_0$ give $A_\\varrho=0$.\nIndependence of the squares gives $\\chi_\\delta\\varrho(w_\\delta w_\\delta^\\top)=0$ for every $\\delta$.\nSome $\\chi_\\delta$ is nonzero since otherwise the expansion gives $M=0$.\nFor that $\\delta$, dividing the test equations by $\\chi_\\delta$ gives $\\varrho(w_\\delta w_\\delta^\\top)=0$ for every test.\nThe Booleanity tests force $(w_\\delta)_i\\in\\{0,1\\}$ since they give $(w_\\delta)_i^2=(w_\\delta)_i$.\nThe constraint tests certify that this Boolean assignment in $\\mathcal V$ is a witness because each term $a^\\top(w_\\delta w_\\delta^\\top)b$ evaluates to the corresponding product $(a^\\top w_\\delta)(b^\\top w_\\delta)$.",
+      "explain": "Use the test contractions of the tied tensor to find one Boolean point satisfying the constraints."
+    },
+    {
+      "id": "new:initial-zero-stacks",
+      "kind": "lemma",
+      "label": "Zero stacks for the target pair",
+      "name": "The difference of the two received target expressions has zero stacks",
+      "statement": "The difference $G_T-\\mathsf K^\\alpha$ of the two received target-group expressions has zero stacks in both sectors.",
+      "proof": "Every stack entry of this difference is zero by definition, since its only nonzero pairing coefficient is indexed by $(G_1,G_2)$ rather than a left-factor and right-factor pair.",
+      "explain": "Use the view result for a zero-stack difference rather than deducing nonidentity from variation of a sampled exponent."
+    },
+    {
+      "id": "new:kernel-packing",
+      "kind": "lemma",
+      "label": "Packing a short kernel multiple",
+      "name": "A short kernel multiple yields a packed Module-SIS solution",
+      "statement": "Let $v\\in\\mathbb F_q^{N+1}$ be a nonzero kernel vector with $v_0=0$ and $x\\in\\mathbb Z^{N+1}$ a short multiple, so $x\\equiv c v\\pmod q$ for a nonzero $c\\in\\mathbb F_q$ and $\\|x\\|_\\infty\\le\\beta$. Let $A$ be columns $1,\\ldots,\\ell$ of $M$. Form $\\hat x\\in R^\\ell$ by the coefficient packing of the forms with integer entries. Then $A\\hat x=0\\pmod q$ and $0<\\|\\hat x\\|_\\infty\\le\\beta$.",
+      "proof": "With $v_0=0$, the defining coefficient blocks of $z(v)=0$ are those of $A\\hat v$, where $\\hat v$ is the packing over $R_q$.\nBy linearity of $x\\mapsto A\\hat x\\bmod q$, $A\\hat x\\equiv c A\\hat v=0\\pmod q$.\nThe coefficients of $\\hat x$ are positive-index entries of $x$ or padding zeros, so the sup norm is at most $\\beta$.\nAt least one of these coefficients is nonzero modulo $q$ because $cv\\ne0$ has zeroth coordinate zero.",
+      "explain": "Prove the ring equation and norm guarantees as a counted result."
+    },
+    {
+      "id": "new:circuit-time",
+      "kind": "proposition",
+      "label": "Reduction circuit cost",
+      "name": "Time bound by evaluating and differentiating circuits",
+      "statement": "Under the extraction theorem's hypotheses, if the adversary runs in time $t$ with at most $Q$ generic group calls and $Q_H$ queries to each random oracle, both $\\mathcal B_0,\\mathcal B_1$ run within $t_R=t+O(Q+d_R Q_H+\\mu)+\\mathsf{poly}(D,\\log q)$ in the specified operations model including description and advice.",
+      "proof": "Sample the points of (R2) before the interaction, using their independence from the run.\nSampling the tuples costs polynomial time in $D$ by the stated lists of independent coordinates and the finite-set sampling operation.\nThe sampler $\\mathcal D_g$ draws the encryption search vector in $O(N+1)$ operations by $N+1$ draws and integer sums and halving to center coordinate zero.\nThe bounds $N,n\\le D$, $n=(k+1)d_R$ and $\\ell=\\lceil N/d_R\\rceil$ bound all dimensions of the challenge matrix and the forms by $O(D)$.\nThe bound $K_1K_2=n/2$ bounds both leg counts and the cell count by $O(D)$.\nCondition (P1) bounds $J,\\Delta$ by $2D$.\nThe remainder definitions give $J'\\le\\max(1,n_{\\mathsf c})$ and $\\Delta'\\le D$.\nThe published list has length polynomial in $D$ since its indices run through those ranges and the $N+1$ coordinates.\nThe exponent formulas take polynomial time in $D,\\log q$ by Horner evaluation and polynomial arithmetic at the fixed number of encryption, private and recovery points.\nIn particular the fixed QAP polynomials can be stored as advice using $O(ND+D)$ field elements by their coefficient lists.\nProgramming the $k\\ell$ challenge entries costs polynomial time in $D$.\nThe fixed message and its masking take $O(\\mu)$ additional description and operations by writing it and applying XOR in label-sized blocks.\nFor each group store the partial injection in both directions and keep a table of strings excluded from future assignments.\nConditioned on the table, the injection on unassigned exponents is uniform among injections into the undecided strings.\nA new exponent's label can therefore be drawn by the permitted uniform sample outside the excluded keys.\nFor an undecided operand string, the probability of a preimage is the number of unassigned exponents divided by the number of undecided strings.\nImplement this probability by a uniform integer draw from $[0,U-1]$ compared with the number of unassigned exponents, where $U$ is the undecided count after the generators have labels.\nGiven membership, sample its exponent uniformly outside the assigned keys.\nInitialize the ciphertext and key labels by applying the new-exponent rule at most once per published element plus the key.\nOne eligibility flag per target-group label implements the name-query restriction with constant updates per call.\nThe allowed table updates, group exponent arithmetic and name formation give constant overhead per generic group call, including failures.\nAnswer a fresh seed query by sampling the $d_R$ coefficients of its ring entry.\nAnswer a fresh key query by one sample from its prescribed finite range.\nThe oracle tables use $O(d_R Q_H)$ total operations by $d_R\\ge 1$.\nImplement each record by a reference to a scalar circuit over the received exponents.\nAssign the zero circuit to any operand lacking a record, as prescribed.\nEach group result's record adds a constant number of arithmetic gates because its exponent operation is linear or is a pairing product.\nThe extra subtraction in (R3) leaves $O(Q+1)$ gates beyond the received leaves.\nEvaluating each new gate at the private point as it is added permits each comparison in (R3) in constant time.\nRetain two pointers at the first discrepancy so that its selected difference takes one subtraction node.\nFind the other selected record by one lookup at the target label.\nFor a recovery sector set the received leaves from the other sector of $\\mathbb G_2$ and $\\mathbb G_T$ to zero, with $G_2,G_T$ assigned to the plain sector.\nBy the target expression formula, which is linear in the right and key leaves, this substitution retains exactly the chosen sector.\nThe exponent evaluation circuits in the input $r$ have polynomial size in $D,\\log q$ by the same arithmetic bounds.\nBy the gradient-cost demand, differentiating the full circuit in $r$ costs $O(Q)+\\mathsf{poly}(D,\\log q)$ per record and point.\nFor each sector, Gaussian elimination projects the linear system $v=\\sum_l a_l g_l$, $\\varphi_e(v)=0$ onto the coordinates of $v$, where $g_l$ are its three gradients and $a_l$ are scalar unknowns.\nFinding a nonzero solution projected onto $v$ if one exists takes $\\mathsf{poly}(D,\\log q)$ operations by the dimensions $n,N+1$ and three.\nThere are at most two lifting calls, each polynomial in $N,\\log q$ by the lifting demand.\nPacking the result is polynomial in $D,\\log q$ because there are $\\ell$ polynomials of degree below $d_R$.\nAdding the costs to $t$, with at most six gradient computations per selected expression and at most two expressions, gives $t_R=t+O(Q+d_R Q_H+\\mu)+\\mathsf{poly}(D,\\log q)$.",
+      "explain": "Bound the reduction by the circuit size and the total number of oracle operations."
+    },
+    {
+      "id": "new:first-mark-bound",
+      "kind": "lemma",
+      "label": "Charged and guessed first marks",
+      "name": "First-mark bounds with a shared message-mask coupling",
+      "statement": "In an extraction run with either fixed challenge message, with the admissible parameters and the stated caps $Q<2^\\lambda$ and $Q_H\\le2^\\lambda$, let $u=2Q+2$, $\\varpi=\\Omega_{22}\\zeta\\zeta^{\\prime}\\zeta^{\\prime\\prime}\\varepsilon$, and $d_f=3D+2n+2K_1+6$. Each run that reaches a target query has a first mark, and each first mark is $\\mathsf{init}$, $\\mathsf{guess}$, charged, or good. The probability of a charged first mark is at most $N_{\\mathrm{cmp}}(u)(\\theta+\\varepsilon_f)+(\\binom{L+3u}{2}+L+3u)\\varepsilon_f$. The probability that the first mark is $\\mathsf{guess}$ is at most $2^\\lambda/N_{\\mathsf{free}}$.",
+      "proof": "Truncating before an excess call enforces the caps while preserving the extraction runs, which meet those caps by hypothesis.\nBy (M4) a target query sets a mark if a mark has not been set before it.\nThe assignments of marks in (M1)–(M4) and the definitions of goodness and charge give the stated four categories.\nGiven the encryption randomness and injections, the key oracle's value at the target string is a uniform message-length string independent of its values at other strings.\nHence the real run can be sampled by using a uniform mask $h$ and setting that one key answer to $h\\oplus m$.\nChanging that answer leaves the transcript through the first target query, before its answer, fixed.\nThe first mark has the same law in $\\mathsf R_\\$$ because (M1)–(M4) only inspect this prefix, or the whole run if there is no target query.\nBy (P2) each group has more than $L+3Q$ labels, enough for the symbolic assignments.\nThe lazy-label simulation demand couples this run with the symbolic run through the requests before a first collision.\nIn this coupling entries that do not collide have the exponents of their assigned labels as their evaluated values.\nThe symbolic transcript is independent of the exponent evaluation because it uses only formal expressions, label images, and the independently sampled mask and oracle answers.\nOn a charged-first-mark run there was no collision on received elements since (M1) would mark it $\\mathsf{init}$.\nIf the first collision occurs before a target query, its later entry cannot be a fresh guess in a good collision, because that guess appears in the difference.\nA good collision at a result merges it with the earlier entry's label in the real run by equality of exponents.\nA good merge would set a good first mark by (M3), contradicting the charged mark.\nIf the query precedes the collision, the target label must have an entry since otherwise (M4) would give $\\mathsf{guess}$.\nIt is a key-value entry in the evaluation by the coupling.\nThis entry must be bad since a good key-value entry would give a good mark by (M4).\nFor a fixed symbolic comparison difference or key-value expression containing guesses, the linear and bilinear expression forms make each nonconstant guess-monomial coefficient a constant or a source-group expression.\nSince the charged bound is at least one when $\\varepsilon_f\\ge1$, in the charged analysis we may take $\\varepsilon_f<1$.\nFor every fixed $r$, some formally nonzero guess coefficient is nonzero on the valid coins, by the collision demand for groups 1 and 2 if it is not a constant.\nThe cleared polynomial is nonzero because this guess coefficient is nonzero at some valid coins, where $\\varpi\\ne0$.\nEach term linear in guesses has cleared total degree at most $d_f+1$ by the degree bound for groups 1 and 2 for its coefficient.\nEach term in two guesses has cleared degree at most seven because its coefficient is constant and $\\varpi$ has degree five.\nEach independent evaluation coordinate has at least $q-D$ choices since the sampler excludes at most $\\max(D,K_1+1)=D$, with $K_1\\le n/2$ and $2\\le n\\le D$.\nApplying the random evaluation bound at degree $d_f+1$ gives probability at most $(d_f+1)/(q-D)\\le\\varepsilon_f$, since the term without guesses has degree at most $d_f$.\nWith no guess variable, the view demands bound coincidence probability by $\\varepsilon_f$ for each source-group comparison or target-group nonidentity at fixed $r$.\nAt an identity the mark stack is nonzero by the view demand for a formally distinct pair or a key comparison.\nA bad event with an identity requires a light mark stack by definition.\nAll $r$ giving that identity are in a single fiber of the mark stack by the view demand.\nThe measure of this fiber is at most $\\theta$ for a light stack, by the definition of guessing probability.\nThus each event without guess variables has bad-event probability at most $\\theta+\\varepsilon_f$.\nEach call can introduce at most two guessed operands and one result into the tables.\nThe events with guess variables number at most $\\binom{L+3Q}{2}+L+3Q$ by counting all unordered entry pairs and all single entries.\nA collision without guess variables must have a result as its later entry unless both entries were received.\nOnly collisions after receipt matter here because an initial collision prevents a charged first mark.\nThus at call $j$ there are at most $L+3j-1$ earlier entries that could pair with its result.\nA key value without guesses has at most $Q+2$ candidate entries, from the target-group results plus the received generator and published $\\mathsf K^\\alpha$.\nTheir total with the comparisons is at most $N_{\\mathrm{cmp}}(u)$ since $u=2Q+2$ and $\\sum_{j=1}^Q(L+3j-1)+Q+2\\le uL+u(u+1)/2$.\nTaking the union bound gives the stated charge estimate conditional on the symbolic transcript, since $Q\\le u$.\nThe estimate holds unconditionally because the bound is independent of that transcript.\n\nIn a lazy exposure of $\\mathsf R_\\$$ with images unrevealed, every assigned target-group label before a first mark has an entry by (M1)–(M3).\nAt most $2+3Q$ target-group strings have been examined, from those two initial elements and at most three examinations per call.\nIf a query can set a first guess mark, the target exponent has no assigned label, since the mark requires no entry.\nThe number of unexamined strings is at least $N_{\\mathsf{free}}>0$ by the label cap in (P2) and $Q<2^\\lambda$.\nCondition on the encryption coins, the non-label randomness and the prior table decisions, which determine the query string.\nIf the target exponent is unassigned, uniformity of the remaining injection then gives query-hit probability at most $1/N_{\\mathsf{free}}$.\nA union bound over at most $2^\\lambda$ key queries gives the stated guess bound.",
+      "explain": "Transfer both first-mark probabilities by one message-mask coupling, then use two exposure orders of the same injections."
+    },
+    {
+      "id": "new:qap-residual",
+      "kind": "lemma",
+      "label": "QAP residual criterion",
+      "name": "The two quotient tests are residual evaluation tests",
+      "statement": "Fix admissible points and a symmetric matrix $W$. For $\\chi\\in\\mathbb F_q$ and $e\\in\\{0,1\\}$ let $N_e=P_W-Z_0R_W-e\\chi L_\\rho$ and $Z_e=Z(X)(X-\\rho)^e$, and let $\\gamma$ generate the order-$\\nu$ subgroup $\\mathcal G$ used for the cosets. The identity $P_W=h'Z+Z_0 R$ with $\\deg h'<D$ and allowed $R$ holds for some such $h',R$ exactly if $W$ passes. The identity $P_W-\\chi L_\\rho=h Z(X)(X-\\rho)+Z_0 R$ with $\\deg h<D-1$ and allowed $R$ holds for some such $h,R$ exactly if $W$ passes and $\\chi=W_{00}$. In each identity $R$ must equal $R_W$. A moment matrix $ww^\\top$ of a witness passes, so it satisfies both identities with the prescribed corner. ",
+      "proof": "Evaluation of either division identity on the cosets forces $R=R_W$ by interpolation, since $Z_0$ is nonzero there.\nOn the roots of $Z_e$ ordered by $d_j$, cosets, then the optional $\\rho$, the table gives the evaluation vector of $N_e$ as $((P_W(d_j))_j,0,(W_{00}-\\chi)_{i=1}^e)$.\nBy the factor theorem these values give exactly the divisibility conditions for the two identities.\nThe residual degrees at most $2D-2$ and divisor degrees $D-1,D$ give quotient degrees below $D,D-1$, respectively.\nGeometric summation in $\\sum_j a_j\\delta^j\\sum_{i=0}^{\\nu-1}(\\gamma^j)^i$ gives the coset sum of $R_W=\\sum_j a_j X^j$ as $\\nu\\sum_{m<n_{\\mathsf c}}a_{\\nu m}(\\delta^\\nu)^m$.\nThe arguments $\\delta^\\nu$ are distinct over the distinct cosets because the kernel of the $\\nu$-power map is $\\mathcal G$.\nBy the root bound and $\\nu\\ne0$ in the field, all coset sums vanish exactly when the coefficients $a_{\\nu m}$ vanish, vacuously if there are no cosets.\nThe test table identifies passing with the vanishing of the values $P_W(d_j)$ and the coset sums of $R_W$.\nFor $W=ww^\\top$, each test becomes its Booleanity or witness constraint equation by $a^\\top W b=(a^\\top w)(b^\\top w)$.",
+      "explain": "Use the same residual evaluation argument for both divisors, and compute coset sums by geometric summation."
+    }
+  ],
+  "edges": [
+    {
+      "from": "blob:stacks-gp",
+      "to": "new:fiber-count",
+      "kind": "background"
+    },
+    {
+      "from": "blob:sampler-search",
+      "to": "new:fiber-count",
+      "kind": "background"
+    },
+    {
+      "from": "blob:lattices",
+      "to": "new:fiber-count",
+      "kind": "background"
+    },
+    {
+      "from": "ext:ln",
+      "to": "new:tensor-witness",
+      "kind": "uses",
+      "demand": "The square Moore matrix with rows (β, β^q, …, β^(q^(d−1))) for d entries β linearly independent over F_q has nonzero determinant."
+    },
+    {
+      "from": "blob:bqs",
+      "to": "new:tensor-witness",
+      "kind": "background"
+    },
+    {
+      "from": "blob:tests",
+      "to": "new:tensor-witness",
+      "kind": "background"
+    },
+    {
+      "from": "blob:stacks-gp",
+      "to": "new:tensor-witness",
+      "kind": "background"
+    },
+    {
+      "from": "blob:forms-weights",
+      "to": "new:tensor-witness",
+      "kind": "background"
+    },
+    {
+      "from": "blob:copies-ties",
+      "to": "new:tensor-witness",
+      "kind": "background"
+    },
+    {
+      "from": "blob:kernel-short",
+      "to": "new:tensor-witness",
+      "kind": "background"
+    },
+    {
+      "from": "blob:enc",
+      "to": "new:initial-zero-stacks",
+      "kind": "background"
+    },
+    {
+      "from": "blob:expressions",
+      "to": "new:initial-zero-stacks",
+      "kind": "background"
+    },
+    {
+      "from": "blob:ggm",
+      "to": "new:initial-zero-stacks",
+      "kind": "background"
+    },
+    {
+      "from": "blob:forms-weights",
+      "to": "new:initial-zero-stacks",
+      "kind": "background"
+    },
+    {
+      "from": "blob:kernel-short",
+      "to": "new:kernel-packing",
+      "kind": "background"
+    },
+    {
+      "from": "blob:forms-weights",
+      "to": "new:kernel-packing",
+      "kind": "background"
+    },
+    {
+      "from": "blob:msis",
+      "to": "new:kernel-packing",
+      "kind": "background"
+    },
+    {
+      "from": "blob:bqs",
+      "to": "new:kernel-packing",
+      "kind": "background"
+    },
+    {
+      "from": "lem:reduction",
+      "to": "new:circuit-time",
+      "kind": "uses",
+      "demand": "Sampling the reduction's coins before the run changes no output."
+    },
+    {
+      "from": "lem:lift",
+      "to": "new:circuit-time",
+      "kind": "uses",
+      "demand": "T_(LIFT) is polynomial in N and log q."
+    },
+    {
+      "from": "ext:bs",
+      "to": "new:circuit-time",
+      "kind": "uses",
+      "demand": "The gradient of a computation costs a constant number of operations per operation of the computation."
+    },
+    {
+      "from": "blob:ggm",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:rom",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:enc",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:admissibility",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:records",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:reductions",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:qap",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:forms-weights",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:copies-ties",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:expressions",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:bqs",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:msis",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:sampler-search",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:admissibility",
+      "to": "new:first-mark-bound",
+      "kind": "background"
+    },
+    {
+      "from": "blob:bound-e",
+      "to": "new:first-mark-bound",
+      "kind": "background"
+    },
+    {
+      "from": "blob:copies-ties",
+      "to": "new:first-mark-bound",
+      "kind": "background"
+    },
+    {
+      "from": "blob:enc",
+      "to": "new:first-mark-bound",
+      "kind": "background"
+    },
+    {
+      "from": "blob:expressions",
+      "to": "new:first-mark-bound",
+      "kind": "background"
+    },
+    {
+      "from": "blob:ggm",
+      "to": "new:first-mark-bound",
+      "kind": "background"
+    },
+    {
+      "from": "blob:monitor",
+      "to": "new:first-mark-bound",
+      "kind": "background"
+    },
+    {
+      "from": "blob:rom",
+      "to": "new:first-mark-bound",
+      "kind": "background"
+    },
+    {
+      "from": "blob:stacks-gp",
+      "to": "new:first-mark-bound",
+      "kind": "background"
+    },
+    {
+      "from": "blob:symbolic-game",
+      "to": "new:first-mark-bound",
+      "kind": "background"
+    },
+    {
+      "from": "blob:we",
+      "to": "new:first-mark-bound",
+      "kind": "background"
+    },
+    {
+      "from": "lem:view",
+      "to": "new:first-mark-bound",
+      "kind": "uses",
+      "demand": "At every fixed r, formally distinct source-group expressions coincide with probability at most ε_f, and a target-group nonidentity with multiple χκ has coincidence probability at most ε_f. Every r giving an identity lies in the fiber of the mark stack and its vectors u_c. For a target-group comparison of a formally distinct pair or a key comparison with χ=1, an identity at fixed r has a nonzero mark stack because zero stacks force formal equality with χ=0."
+    },
+    {
+      "from": "lem:degree",
+      "to": "new:first-mark-bound",
+      "kind": "uses",
+      "demand": "With ϖ=Ω_22 ζ ζ′ ζ″ ε, the cleared target-group comparison with χκ and the cleared difference of source-group expressions are polynomials of total degree at most d_f=3D+2n+2K_1+6 in the ordinary coins and r."
+    },
+    {
+      "from": "ext:sz",
+      "to": "new:first-mark-bound",
+      "kind": "uses",
+      "demand": "The zero probability of a nonzero comparison polynomial of degree at most d_f+1, evaluated on independent uniform coordinates each with at least q−D choices, is at most (d_f+1)/(q−D)."
+    },
+    {
+      "from": "ext:shoup",
+      "to": "new:first-mark-bound",
+      "kind": "uses",
+      "demand": "Lazy sampling of the label maps couples the symbolic and real generic-group simulations up to the first collision."
+    },
+    {
+      "from": "blob:qap",
+      "to": "new:qap-residual",
+      "kind": "background"
+    },
+    {
+      "from": "blob:tests",
+      "to": "new:qap-residual",
+      "kind": "background"
+    },
+    {
+      "from": "blob:bqs",
+      "to": "new:qap-residual",
+      "kind": "background"
+    }
+  ],
+  "discharge": [
+    {
+      "edge": [
+        "ext:odl",
+        "lem:inverse"
+      ],
+      "by": [
+        "new:fiber-count"
+      ],
+      "argument": "The lattice clause is the claimed rank-d fiber-density bound with the specified uniform box law."
+    },
+    {
+      "edge": [
+        "lem:classification",
+        "lem:extractor"
+      ],
+      "by": [
+        "new:tensor-witness"
+      ],
+      "argument": "The replacement is exactly the witness-existence result for a nonzero usable stack of rank at most three and with no kernel vector in its row space."
+    },
+    {
+      "edge": [
+        "lem:half",
+        "cor:ext-error"
+      ],
+      "by": [
+        "ext:br"
+      ],
+      "argument": "Let p=Pr[Tgt] and f=Pr[Tgt and Fail]=(f_0+f_1)/2 in the original experiment, using the uniform bit b. The by-statement makes the event of no target query and the output on that event functions of coins independent of b. Thus Pr[b'=b and no target query]=(1−p)/2. Within Tgt the event of a correct guess with failure has probability at most f. The total is bounded by (1−p)/2+f≤1/2+f/2 because f≤p, giving exactly the demanded factor."
+    },
+    {
+      "edge": [
+        "lem:init",
+        "thm:extraction"
+      ],
+      "by": [
+        "lem:view",
+        "new:initial-zero-stacks"
+      ],
+      "argument": "By (M1), init requires equal exponents for a pair of formally different received expressions of one group. The source-group per-pair bound is clause (e) of the retained view statement. For the target-group pair, the added lemma gives zero stacks. If this difference were identically zero at any fixed r, clause (b) of the view statement would make it formally zero. For a formally distinct pair that is impossible, so clause (c) with χ=0 applies for every r. The bounds stay at ε_f upon averaging over the search vector. The union bound over the at most C(L_s,2) pairs of each group gives exactly the demanded sum."
+    },
+    {
+      "edge": [
+        "lem:heavy",
+        "lem:reduction"
+      ],
+      "by": [
+        "new:fiber-count",
+        "lem:inverse",
+        "new:kernel-packing"
+      ],
+      "argument": "Under (P3), (I5) gives g^(-4)<μ_tr<θ. The stack rank bound therefore excludes rank at least four for a heavy stack. Each kernel vector v is nonzero and its zeroth coordinate is the vanishing constant coefficient of z(v). The row-space probability inequality gives gp(v^⊤)≥gp(W)>θ. All hypotheses of the retained inverse theorem hold, yielding a short multiple. The packing result applies to that multiple and supplies exactly the ring equation and nonzero β-bounded norm in the demand."
+    },
+    {
+      "edge": [
+        "lem:heavy",
+        "lem:extractor"
+      ],
+      "by": [
+        "new:fiber-count"
+      ],
+      "argument": "A good mark is heavy by definition. For rank at least four the stack bound gives gp(W)≤g^(-4), while (P3) via (I5) gives g^(-4)<μ_tr<θ. This contradicts gp(W)>θ, so the rank is at most three."
+    },
+    {
+      "edge": [
+        "prop:reduction-time",
+        "cor:ext-error"
+      ],
+      "by": [
+        "new:circuit-time"
+      ],
+      "argument": "The proposition gives the required time bound in asymptotic form under the same query limits and time model. Each s_b is an advantage of the corresponding reduction, so the definition of the largest advantage among algorithms within that time gives exactly s_b ≤ Adv^(MSIS)(t_R)."
+    },
+    {
+      "edge": [
+        "lem:charged",
+        "thm:extraction"
+      ],
+      "by": [
+        "new:first-mark-bound"
+      ],
+      "argument": "The lemma states exactly the demanded charge probability with the original E terms and caps, and the coverage by the four kinds of first mark at any target query."
+    },
+    {
+      "edge": [
+        "lem:names",
+        "thm:extraction"
+      ],
+      "by": [
+        "new:first-mark-bound"
+      ],
+      "argument": "The guess bound is in the original extraction experiment with each fixed challenge message and has the demanded 2^λ/N_free constant."
+    },
+    {
+      "edge": [
+        "lem:qap",
+        "lem:honest"
+      ],
+      "by": [
+        "new:qap-residual"
+      ],
+      "argument": "The witness clause supplies the two division identities with their original quotients of degree below D and the allowed remainder R_W. For a witness the prescribed corner is its coordinate zero squared, namely 1."
+    },
+    {
+      "edge": [
+        "lem:qap",
+        "lem:view"
+      ],
+      "by": [
+        "new:qap-residual"
+      ],
+      "argument": "For an ordinary cell, the quotient identity with allowed remainder forces passing. For the key cell, the corresponding identity with χ gives passing and exactly W_00=χ. Moving the quotient terms to the right does not change their degrees or allowed exponents."
+    }
+  ]
 }
