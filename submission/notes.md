@@ -1,5 +1,1 @@
-# Starting submission: the paper as published
-
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
-
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+This substitution also shares the message-mask coupling used by the charged and guessed first-mark bounds. The proof transfers both first-mark events to the independent-mask run. It then uses formal symbolic comparisons for the charged event and a separate deferred injection exposure for guesses. The original bounds and query caps stay in the statement.
