@@ -1,0 +1,200 @@
+{
+ "version": 1,
+ "id": "proof-golf-praxis-verified",
+ "rules_path": "rules.md",
+ "rules_files": [
+  "dag-contract.md",
+  "blob-audit.md"
+ ],
+ "review_standard": "proof-golf-praxis-verified-review-v1",
+ "objectives": [
+  {
+   "name": "steps",
+   "direction": "-",
+   "unit": "steps",
+   "semantics": "The number of proof steps of the DAG that results from applying the submitted substitution to the protected Praxis DAG, exactly as reported in the field steps of a passing paperdag_gate result for the submission's declared input. A proof is split into steps at every new line and at every '.', ';' or ':' followed by white space; a step costs 1 plus 1 for every further 60 canonical tokens in it (words, numbers and single symbols after LaTeX markup is dropped). A result costs the steps of its proof, its statement is free, a cited theorem costs 1, a blob costs 0, and the score is the sum. Lower is better. The number is never taken from prose, from the reviewer or from a file the gate did not check.",
+   "score_source": {
+    "check": "paperdag_gate",
+    "field": "steps"
+   },
+   "score_minimum": {
+    "numerator": "4",
+    "denominator": "1"
+   }
+  }
+ ],
+ "allow_unscored": false,
+ "policies": {
+  "scoring": {
+   "version": "paper-dag-steps-v1"
+  },
+  "validity": {
+   "version": "paper-dag-substitution-strict-v1"
+  }
+ },
+ "supported_policies": {
+  "scoring": [
+   {
+    "selector": {
+     "version": "paper-dag-steps-v1"
+    },
+    "instructions": "Do not choose a number and return scores null. The verifier derives steps from the passing paperdag_gate result for the submission's declared input: it is the step count of the DAG that results from applying the substitution to the protected base, as rules.md defines it. A lower count is never a reason to accept and a higher count is never a reason to reject."
+   }
+  ],
+  "validity": [
+   {
+    "selector": {
+     "version": "paper-dag-substitution-strict-v1"
+    },
+    "instructions": "Apply rules.md and dag-contract.md to the complete submission. Return valid only if (1), (2) and (3) all hold. (1) Binding. The paperdag_gate run for the submission's declared input completed with passed true, and its substitution_sha256 is, character for character, the sha256 recorded in the evidence for the file substitution.json. If the two differ, the bytes that were scored are not the file you are reading: reject and say so. Do not recompute or second-guess steps; code counts it. (2) Obligations. Rebuild the obligations from substitution.json and dag-contract.md: one O-discharge per entry of discharge, one O-proof per added result, one O-cite per added external. Their number must be the gate's obligations count and their ids the gate's obligation_ids. Judge each one on its own. O-discharge: given only the statements of the by nodes (from substitution.json when added, from dag-contract.md when kept), does the demand on that edge in dag-contract.md follow as stated, with the same constants, bounds and hypotheses? The submitter's argument is shown as a hint; it is not evidence. A weaker constant, a looser bound, an extra hypothesis, a narrower range of parameters or a different probability space fails. O-proof: FULL PROOFS ONLY. Accept an added result only when its proof field is a complete proof: every step is written out and you have checked each one. Reject an idea, a plan, a sketch, an outline, a list of steps without the steps, a restatement of the claim, and any proof that points back to the paper, to the proof it replaces, to a removed node, to another node's proof, to the authors or to the reader, or that says a step is clear, standard, routine, similar or omitted in place of doing it. A shorter proof must be a different complete proof, never the same proof with steps left out. ONE INFERENCE PER STEP. The score counts steps (sentences and lines), so every step of an added proof must be a single inference that you can check on its own from what precedes it: one application of a definition, a lemma, a cited theorem, an incoming demand, or one algebraic or probabilistic manipulation. Reject a proof in which a step compresses several inferences into one sentence (for example a chain of claims joined by commas or 'and hence', or 'by the above, X, Y and Z'), or uses an abbreviation, a symbol or a notation that is not defined in the node itself or in a blob linked to it. If you could not reconstruct a step without the paper's own proof, the step is missing: reject. O-proof: is the proof complete and correct, using only the node's own incoming demands, the blobs it is linked to, and standard mathematics? BLOBS ARE BACKGROUND, NOT RESULTS: from a linked blob a proof may take definitions, notation, models, constructions, assumptions, parameter conditions, standard mathematics and facts the blob attributes to an earlier paper; it may not take any claim that blob-audit.md lists as U (unverified) unless the proof proves it in its own steps or takes it by a uses edge from a result or external. Reject a proof that relies on a U claim without proving it, and reject any discharge whose by list names a blob. A proof that uses a removed node, or a kept node it has no edge from, fails. Each incoming uses edge's demand must itself follow from the statement of its from node. The proof must be complete in the proof field: text in explain, name, label, a discharge argument, an edge field or notes.md is not part of it. O-cite: does the cited source state this, at this locator, as quoted, and is the node's statement a faithful reading of the quote? You cannot open the source. Accept only when you recognise the source and are confident it states the quoted result at that locator, and the statement asserts no more than the quote; otherwise reject and name the citation a person must open. A citation of the paper itself or of its own Lean development, under any spelling, is refused. (3) Nothing listed under 'What does not count' in rules.md applies. The standard is strict: reject the whole submission on any gap, any step you cannot confirm from the submitted text, and any changed constant, bound or hypothesis. Do not repair an argument, do not accept one because the paper is believed correct, and do not accept part of a submission. The empty substitution has no obligation and is valid when (1) holds. In reason, give each obligation id with accepted or rejected and, for a rejection, the first gap. You are a model reading a proof, not a proof check: say so, and do not describe the result as verified or certified."
+   }
+  ]
+ },
+ "provider": {
+  "model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "max_completion_tokens": 32768,
+  "timeout_seconds": 1200,
+  "background": true,
+  "max_attempts": 1
+ },
+ "limits": {
+  "max_followups": 0,
+  "max_files": 3,
+  "max_file_bytes": 262144,
+  "max_submission_bytes": 786432,
+  "max_initial_runs": 1,
+  "run_seconds": 20,
+  "initial_seconds": 20,
+  "total_seconds": 20,
+  "max_prompt_bytes": 4194304,
+  "total_review_seconds": 2400
+ },
+ "checkers": [
+  {
+   "id": "paperdag_gate",
+   "description": "Rebuilds the declared substitution (base64 text of one zlib stream, in parts) and runs the protected reference verifier on the protected Praxis DAG. Passes only when the bytes are one strict JSON object and structural checks S1 to S8 all hold; then reports steps, the score of the resulting DAG, the semantic obligations the verifier lists, and substitution_sha256, the SHA-256 of the bytes it checked. It never sees submitted files and judges no mathematics: a pass binds the score to the declared substitution, it does not establish any obligation.",
+   "source": "checkers/paperdag_gate.py",
+   "files": [
+    "checkers/paperdag_gate.py",
+    "checkers/paperdag.py",
+    "checkers/dag.json"
+   ],
+   "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "substitution"
+    ],
+    "properties": {
+     "substitution": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "items": {
+       "type": "string",
+       "minLength": 1,
+       "maxLength": 4096
+      }
+     }
+    }
+   },
+   "output_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "added",
+     "base",
+     "base_steps",
+     "errors",
+     "failed_checks",
+     "first_failed_check",
+     "steps",
+     "message",
+     "obligation_ids",
+     "obligations",
+     "passed",
+     "removed",
+     "saved",
+     "substitution_sha256"
+    ],
+    "properties": {
+     "passed": {
+      "type": "boolean"
+     },
+     "steps": {
+      "type": "integer",
+      "minimum": -1,
+      "maximum": 1000000
+     },
+     "base_steps": {
+      "type": "integer",
+      "minimum": -1,
+      "maximum": 1000000
+     },
+     "saved": {
+      "type": "integer",
+      "minimum": -1000000,
+      "maximum": 1000000
+     },
+     "removed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100000
+     },
+     "added": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100000
+     },
+     "obligations": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100000
+     },
+     "obligation_ids": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+       "type": "string",
+       "maxLength": 120
+      }
+     },
+     "first_failed_check": {
+      "type": "string",
+      "maxLength": 32
+     },
+     "failed_checks": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+       "type": "string",
+       "maxLength": 32
+      }
+     },
+     "errors": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+       "type": "string",
+       "maxLength": 300
+      }
+     },
+     "substitution_sha256": {
+      "type": "string",
+      "maxLength": 64
+     },
+     "base": {
+      "type": "string",
+      "maxLength": 64
+     },
+     "message": {
+      "type": "string",
+      "maxLength": 300
+     }
+    }
+   },
+   "required_for_score": true
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+  "initial_results": [
+    {
+      "passed": true,
+      "steps": 528,
+      "base_steps": 528,
+      "saved": 0,
+      "removed": 0,
+      "added": 0,
+      "obligations": 0,
+      "obligation_ids": [],
+      "first_failed_check": "",
+      "failed_checks": [],
+      "errors": [],
+      "substitution_sha256": "d4f450234399e31f41543cf93eb8e0f8a9d64027c4d1f42a955748218611d892",
+      "base": "c11e19f1da0f93daaf309da999a465e2ea3d1f7f24761e9b5776ef7108e435d4",
+      "message": "structural checks S1 to S8 pass; the semantic obligations are decided in review"
+    }
+  ],
+  "initial_decision": {
+    "kind": "judgment",
+    "requests": [],
+    "judgment": {
+      "valid": true,
+      "scores": null,
+      "reason": "The starting submission is the empty substitution: it removes nothing and adds nothing. The paperdag_gate result for the declared input passed, its substitution_sha256 is the sha256 of substitution.json, and it lists no semantic obligation, so nothing is left to judge. The verifier derives 528 steps, the step count of the paper's own DAG. This is a model's reading, not a proof check.",
+      "evidence_refs": [
+        "source:substitution.json",
+        "run:initial:0"
+      ],
+      "review_standard": "proof-golf-praxis-verified-review-v1"
+    }
+  },
+  "followup_results": [],
+  "final_decision": null
+}

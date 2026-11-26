@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 2,
+  "name": "proof-golf-praxis-verified",
+  "tracks": [
+    {
+      "name": "steps",
+      "description": "Substitute nodes of the Praxis paper DAG (ePrint 2026/2971) so that every demand on the outgoing edges is still met. The score is the number of proof steps of the resulting DAG (sentences and lines, statements free, markup not counted); lower is better. The paper's own DAG scores 528 steps. Blobs are background only: a discharge never names a blob, and a proof may not use a claim of the paper's own that blob-audit.md lists as unverified without proving it.",
+      "category": "math",
+      "mode": "pareto",
+      "promotionMode": "manual",
+      "direction": "-",
+      "objectives": [
+        {
+          "name": "steps",
+          "direction": "-"
+        }
+      ],
+      "paretoPolicies": {
+        "scoring": {
+          "version": "paper-dag-steps-v1"
+        },
+        "validity": {
+          "version": "paper-dag-substitution-strict-v1"
+        }
+      },
+      "editablePaths": [
+        "submission"
+      ],
+      "submissionAdmission": {
+        "version": 1,
+        "submissionReferencesEnabled": false
+      },
+      "setupCommand": [
+        "llm-verifier",
+        "intake",
+        "--root",
+        ".",
+        "--out",
+        ".yukon/work/intake.json"
+      ],
+      "benchmarkCommand": [
+        "llm-verifier",
+        "finalize",
+        "--intake",
+        ".yukon/work/intake.json",
+        "--initial",
+        ".yukon/work/initial.json",
+        "--initial-review",
+        ".yukon/work/review.json",
+        "--score",
+        ".yukon/score.json",
+        "--dossier",
+        ".yukon/dossier.json"
+      ],
+      "scorePath": ".yukon/score.json",
+      "maxSubmissionBytes": 786432,
+      "runner": {
+        "provider": "github-actions",
+        "workflow": "benchmark.yml",
+        "scoreArtifactName": "benchmark-score",
+        "maxConcurrentWorkflows": 2
+      }
+    }
+  ]
+}

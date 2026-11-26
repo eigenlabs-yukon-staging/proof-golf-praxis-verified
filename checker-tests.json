@@ -1,0 +1,305 @@
+[
+ {
+  "id": "baseline-empty",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNpNjkEKgzAQRfeeIrhWakw0jcteo3QxOhMNaBQTuym9e6OCdDf//8djPglLzbxOENKGpQsstOYIfe631gcbtmBnd+NpFrEWPO1QxzlxbThCYbRAACMKjaC1BllXVBII5EaZUqqak24rpWoyihd3kqJCeciiezxsj2gdraOGhYHY8QADz5atHa0fCDPm5jBY17OVpvn9XwAi4WE7p6h7vvYYh+sm7MlfCa3vBlj7k02+P9FFTVA="
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "saved": 0,
+   "obligations": 0,
+   "first_failed_check": "",
+   "steps": 528
+  }
+ },
+ {
+  "id": "pass-one-lemma-replaced",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNq1VE1v2zAMvedXEEaBbpiTxU2aLBl22AcKDNihwI5NUVASFWu1rUySmwRF//so2WlTbBg2DDvYFinq8fGR1v0AMm1djSFbQrbBDbmhwvXQt8IHE9pgbPO6yHIOE+gpBsmioGKhC4VjvZgoRD0ZLxQuFguczs7pjHCiCj3XZ9P5rKCFOJ/PZ6TnxfgNTSfnaprAGLtKaBdmF1pHS7ANQUV1jeBoU6EkBWIPaVXaSpGDQLuQDjuq7V08fTUAyPjQssRKZwO4jruoVL91zw9kJpqZ7vP04DU1CYv3b02TIlLy3lehoOqIXu9usE6kvwbXSvZjBfpZgA8YOmyO+txAKAlox6Ka6ASr4RNp05goK0xGsxxOVqtLd7Va5SBO4R0IWK22pNbEX25K6fX9BZrqgc38ml9V3NAOZXEGrw7LKbzQN2O29U3x8mTUc9k4a/VRDUk/4GYnVv6phDVzHsHnAMZDYwMgpKM5mBBXd5TcpWnWOWCjIHboztCWW+LoG8ngOTIB0M54trzlFBhSngh+6gGdCWVNwcgEYThKliRv+YMNiEjOB1IH7qxZhaaJ7N8fJH6byEVRiF9G+hF3HB76rkfN/LO+a2frCMBVL4XrgYP9s2FoPaN1LsXpOudHaxrflaZsYqNoQ1wON1PwOpCrDY/xtiQm2ekc0K0pwPeW3B6slK3zUQEWV0eEPAXZNmzaAIJl7JPKCtvud0OWyLA0/QZju+S/jD2KE/Ul/TQfRsW4EyT/SQFRWbHc0l9KIFDerp1t2foNrIgBw/+D7fe1sJWRw3X87/4pQz8lynhZxo48m5Q4O73j+D7JO1tat+QZGpJz1kWwBMUbYv906FeEjkI5ZXu4Fh5vPM9VweON8TjNg4cf5hWwKw=="
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "saved": 0,
+   "removed": 1,
+   "added": 1,
+   "obligations": 2,
+   "first_failed_check": "",
+   "steps": 528
+  }
+ },
+ {
+  "id": "pass-unreferenced-external-counts",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNpdkU1SwzAMhfc9hSbrFuL+hXTHAi7AkmGhxnLrIbGDYrdlOr07skkYYOEk0nv6IsnXGRTGc4eh2EHRY0+80HhYDHE/BBtisN7dq2Iutj0OlEyNUqRqozSWpl5pRLMqa411XeN6u6El4UorU5nlutoqqvebqtqSqVT5QOvVRq8zTNhtpj3bS4hMO0AH0TEZYnINaUCt5UmXQOywBemmbaHx0YUhE5g6f0qI17cUij19zwCucqCwKSzMSJ8wqVLEd+uy/C/d4p7aX02Bqsty1Bx2ud+XwLERUVoa4aNhCBioI5cX+XQi/hSDs4HkRa2GIw7Qs+0Ien8mBs+a+G4spkvfonWp9HHiTprsRPJ5Klm+ld/InfxxwpSdg/MBEJjSxnzkZqLIcL7B4DkVOn8+0tQ4FJHz0FP4EX2gv/ycuiuSfpvlk3dO+kDDzw1oOzRH5MP3ncxuX29RsxI="
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "saved": -1,
+   "obligations": 1,
+   "first_failed_check": "",
+   "steps": 529
+  }
+ },
+ {
+  "id": "pass-target-replaced-same-statement",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNqtVsFu2zgQvecrBoaBtQHbiRwnrn0rurvYPaxbIAV6qBNgRI4kNhKpklQc1/CX9R/2m3ZIyW7Spu1iNwfL1mj4Zh7nPcq7E+hlxlboe0vo1ViTHUvMx65JnVe+8cro06Q34rQUHYUkkSSULLJE4lm2OJeI2fnZQuJiscDZ5QVNCc9lks2z6Wx+mdAivZjPLymbJ2cvaHZ+IWcRjLHLiPa7uveNpSUgeLQ5ebBUlyhIjsB59FSR9qAkX5XAEpoavIFNoTyBqzkvwlmqzF3Ae38C3KGxS3TbqvaGF7neCVyHJJSyy9jxB3oq3PayroG2ekDjR7dKx4eMZMoS7baLl5hS+aDtLqyximSuvG0Ex7nP7FHCkUnIAninfLHW4AtyBDVaXu7JOkAtQxDoDssGw95DbZT2DtotAaWhv17ztArei90f+z6gC8ErEjF7NpmNgOcJbuu4oAOTQak0IUfUJ4LBl8RkCBtuA/orWK9z4kuJVSrxZtpfrjV3t9YDHHKYqrrYXfHqyR5eglB1QdbTvYeCa/dfDw4LYTXsM20qJVAZyboJY6RHjN+0sNs6lGekjobLQph5eLylR3A3U1jBaWjL5MfmjhUMCzVuUKwhjjV+pSdrcPipGrD6OT6YxjvWX9xHeJ81ZTl2vKGiuJ7AnxqUH32/0PRmd4A+ne1hdbNL+PupKjxEuq95Ou3YWc02SkHw/OMYv9qwCauq1VZtjckeaBLicIIIwnr3RZI5a5BbZjc50Maz4+LSEVMIv+4ohgul81FUIrIV7xRtuBNLH7g17tJHALpXju+c4RLoY50A/gsr2LKmWM1KRAjFWaIgcctfqCENzbEw5aTrnSmXqHTo/uXBMhP2K+w7z5LMyT1ybWZNFc8qa+olZZkSirQ4GNSbn3q6cYzYhiRV2AbfBte1qh2xI5XlXYgMqqb0auzYbmjH8aYu+SCKQxKmYZGPjrZtZQEph48MRYlNe24GN/HRNZDD7tGGjRSfvAljCDO+mLxo2Y++ocszXdaq/p80/0K9hY4FRVkZFnVOOuiQFcMqfD34+zP7jl0xhNwaPm8fqJRQFN8y43NA8Hksv8vr1eEY/RHDtDTpMv3o/j3FFMVtaJHvfgDpsGKytjPtc6N/xPq5IVnOzw0p6dkhw78GN96Qygv/32fW2VwqJ4qQHqx+3b7R4ysveD8U/xp0+dRbfn+y/weEVMEx"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "first_failed_check": "",
+   "steps": 525
+  }
+ },
+ {
+  "id": "fail-s1-wrong-base",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNq1VNuK2zAQfc9XDGZhW+qkSbf0IaUPvbCw0IeFPm6WRZJHthpZSqVxLoT9945kJ5vQUlqWBmJrLjpzdGas/QgK7UMrqJhDsRIrDONK1OPYyUiGOjLevZ4VJadJETElTZ/5y2CMbTPatdlSF3AO3iFYbFsBAVdWKKxA7iCvGm8rDEC4pbw5YOvXaffdCKDgTfNGWF2M4D5FRVUNoT3/oTDJLPRQZwBv0WUsji+Nyxm5+OCzQqI9oTe4nWgz6W8UOsV+YUGfJUQS1GNz1o0DahBwy6Ka5ASv4Qtq40ySFa4m70q4WCxuw91iUYK8hA8gYbHYYFUjv7kpTdT7a2HsI5vlPT9sCugg1OwNvDos38IL/TBlWz/MXl5MBi6r4L0+OUPWD7jZmVV8OkLNnCdwQ2AiOE8gIG8twVBarTG7G+PqEoSrIHVobXDDLQn4HRVFzswAuDWRrei5hKBcJ4FfRhDBUNMiGZUhDGepBtWSX8KBTOQiYXXgzppZYVxi//Eg8ftMLomC/DAqTrjj8Dh0PWkWz/qug28TAJ96LsMATP7vhqGLjNa7Ki7XOz9742J/tMpnNhWukI/DzZS8Jgyt4THeNMgke51JhBoJfnQYduCV6kJMCrC4OiGUOcl3tOoIJMs4FFVWdP3nJlgiw9IMAcYO2X+bepQm6mv+aD5NZtNekPIXBaT1cr7Bf5RACrWsg+/Y+gOsTAnj/4Mdd6301qhxnb67Z1UYpqQyUTWpI2eTkmZncJzeJ2VvKx/mPENjDMGHBJahOCB3T5t+R+gklUt2h2vheONFPhUcb4zjNI8efwKGHKpo"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S1",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-s2-remove-unknown-node",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNpNz81uhCAQwPG7TzHhvKayflA87ms0exidQUgUjGAvm333Ik2a3mD455fhVYEw4dgwiRHEjjsfNeFSx3OKyaUzueA/pLjlbMLIVzRLyVIbSdgY3RKiaRtNqLXGbuj5ztiSNMrcOzVI1lOv1MBGyeaTu7anrmDZXov2yOrqPI+QLENZADDCfk6ri5bpBj4k6/wCB2/h+/8AiZiK9vuUua8KQKy8jT7kL8y29oFYVPC8qtxfSTkzLRz/buTibPFYCvGs3j8qdVQQ"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S2",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-s3-target-statement-changed",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNqtVsFu20YQvfsrBoKASIAkm7JkRboFaYv2UKWAC/QQ2cBwd0huTO4yu0vLqqAv6z/0mzq7pFQ7cZKi8UGUOJx9M2/nvaX2Z9DLjK3Q91bQq7EmO5aYj12TOq9845XR50lvxGkpOgpJIkkoWWaJxItseSkRs8uLpcTlcomzqzlNCS9lki2y6WxxldAynS8WV5QtkovXNLucy1kEY+wyov2kHnxjaQUIHm1OHizVJQqSI3AePVWkPSjJVyWwhKYGb2BbKE/gas6LcJYqcx/w3p8Bd2jsCt2uqr3hRa53BjchCaXsMvb8gZ4Kt72sa6CtHtD40Z3S8SEjmbJEu+viJaZUPmq7C2usIplrbxvBce4ze5JwYhKy/lC+AF+QI6jR8lJP1gFqGYJA91g2GPYdaqO0d9BuBygN/c2GJ1XwPux/PvQBXQhek4jZ88lsBDxLcDvHxRyYDEqlCTmi/iQYHBNnk2QI29BEfw2bTU58KbFKJd5O+6uN3mjY6AEOOUxVXeyvefXkAG9AqLog6+nBQ8G1++8Gx4WwHvaZMpUSqIxE3YQx0hPGj1rYXR3KM1JHw2UhzDw83tETuNsprOE8tGXyU3OnCoZFGjco1hCnGj/QszU4/FwNWH8bH0zjHWsv7iO8z5qyHDveUFHcTOAXDcqPvlxoers/Qp/PDrC+3Sf8/VwVHiI91DydduysZBulIHj+cYyfbNikU1VtjckeqRHiaIIEwmr3rxhzVh83zD5yoI1nr8WlIyYQft1TDBdK56OoQ2QT3ivach+WPnBj3KOPAPSgHN85wyXQxzoB/BXr17KiWMtKRAjFWaIgccdfqCENzbEs5bF3Jlyi0qH7N0ezTNipcOjcSjIn98SvmTVVPKWsqVeUZUoo0uJoTW++6ebGMWIbklRhG/w9eK7V7Ij9qCzvQmRQNaVXY8dmQzuON3XJR1AckTANS3x0Mm0rCkg5fGIoSmzaEzN4iQ+tgRx2j7Zso/jktzCGMOH55HXLfvQZXZ7pqlb1d9L8FfUOOhYURWVY0jnpoEJWDGvw3eDvv9h17Ikh5NbwSftIo4Si+JwZnwKCT2L5RV5vjwfo1ximpUlX6Uf33ymmKO5Ci3z3FUiHFZO1nWVfGv0j1i8NyXJ+aUhJLw4Z/i+48ZZUXvj/P7PO5lI5UYT0YPWb9l0eX3jB+6H4p6Cr597vh7PDP2x+v+g="
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S3",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-s4-edge-not-discharged",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNq1U99r2zAQfs9fcZhCN+ZkcZMmc8Ye9oNCoQ+FPTalnKSTrdW2MkluUkr/951kl7UMxsbYg2Xd6fTdd9+dHiaQaetaDNkGsh3uyE0VVlPfCx9M6IOx3dsiyzlMoKcYJIuCilIXCue6XChEvZiXCsuyxOXqlE4IF6rQa32yXK8KKsXper0ivS7m72i5OFXLBMbYTUI7M4fQO9qA7QgaalsER7sGJSkQ95B2tW0UOQh0COmyo9bexdtXE4CML21qbHQ2get4ikqNRw/8QWaimekxzwjeUpew+PzWdCkiJR99DQpqntEb3R22ifTX4HrJfmxAvwjwAcOAzVHnHYSagA4sqolOsBq+kDadibLCYrbK4Wi7vXRX220O4hg+gIDtdk+qIv5zU2qvH87QNI9s5te8NPFAO5TFCbx52i7hlb6Zs61vitdHs5HLzlmrn9WQ9ANudmLlf5ZQMecZnAcwHjobACFdzcGEuLuj5K5NV+WAnYLYoTtDe26Jo28kg+fIBEAH49nyllNgSHki+LEHdCbULQUjE4ThKFmTvOUfdiAiOR9IPXFnzRo0XWT/8Uni94lcFIV4MdLPuOPwOHY9auZf9F0720YArnoj3Agc7J8NQ+8ZbXApTjc4P1vT+aE0ZRMbRTvicriZgveBXGt4jPc1MclB54CuogDfe3L3YKXsnY8KsLg6IuQpyPZh1wcQLOOYVDbYD88NWSLD0owHjO2S/zL2KE7URXo0n2bFfBAk/0UB0Vix2dNfSiBQ3lbO9mz9BlbEgOn/wfb3rbCNkdMqvrt/yjBOiTJe1rEjcVKuJ48/AG60hwA="
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S4",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-s5-edge-into-kept-node",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNq1VE1v2zAMvedXEEGBbpiTxU2aLBl22AcKDNihwI5NUVASFWu1rUySmwRF//so2WkT7AMdsB0sixT1+PRI6b4HfW1dhaG/gP4a1+QGClcD3wgfTGiCsfXrvJ9xmEBPMUjmOeVznSsc6flYIerxaK5wPp/jZHpOZ4RjleuZPpvMpjnNxflsNiU9y0dvaDI+V5MExthlQrsw29A4WoCtCUqqKgRH6xIlKRA7SLPCloocBNqGtNlRZe/i7qseQJ83LQosdb8H13EVleqW7vmDvolmX3d5OvCK6oTF67emThEpeecrUVB5QK9z11gl0l+DayT7sQR9FOADhhaboz7XEAoC2rKoJjrBavhE2tQmygrj4TSDk+Xy0l0tlxmIU3gHApbLDakV8Z+LUnh9f4GmfGAzu+ahjAvaoczP4NV+OoEX+mbEtr7JX54MOy5rZ60+OEPSD7jYiZV/OsKKOQ/hcwDjobYBENLWDEyIsztK7sLUqwywVhArdGdowyVx9I1k8ByZAGhrPFvecgoMKU8EP/WAzoSiomBkgjAcJQuSt/zDGkQk5wOpPXfWrERTR/bv9xK/TeSiKMSDkX7IFYeHrupRM39Ud+1sFQH41AvhOuBgn9cMjWe01qU4Xev8aE3t26Mpm9goWhMfh4speB7IVYbbeFMQk2x1DuhWFOB7Q24HVsrG+agAi6sjQpaCbBPWTQDBMnZJZYlNe92QJTIsTbfA2C75L2ONYkd9SZfmwzAftYJkPykgSisWG/pLCQTK25WzDVt/gBUxYPB/sP2uErY0crCK9+4fZ/g9RJtCWrfg1hmQc9Y9pzu6a3bUlcp4WcQOOOrM2Kud4/D9ylr7OHH0XbepxO5p06/YH4Ryymb/DD2+sJ5VhMcX6pFn7+EHw4TQCQ=="
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S5",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-s6-import-from-the-paper-itself",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNpVUcuO2zAMvOcrCJ8d23IernLbvo7FAl30UvRAW7StVpZcSc4mWOy/V1KcxfYgSOQMhxryZQNZb+yEPjtBNuNMditw2LqldV76xUujS5blgdaio0jqGCPGeyaw6vlOIPa7igvknOP+eKCacCdY3/T1vjky4u2haY7UN6z6QPvdQeyTWNBWSe1jUFVS0wn8SJA+AOhgXlol3UgiB238KPUAliZzfp9AIUgktRsU5H7+imEA4nsD8BIOZDKGWS8vfrF0Ms96m/rE0oD+kTrhdPFkNao1rbAlFfNfb3XAeFWtmMYpff67t0sXQFSwqq8E59HTRDpN9cuZ7DUQtPQULlICxmjRyik4Ns/BsbGCbLEW02VWKHUsfbjr3jFLfcgnW2ETMrQJC4rMzwU8OcrhWwE/UP9GLXN4DG8K473m8MleZ2+UGa5Aj1ZqDw+2G+WZoK7qY1nzhq0tgnPToTc2qj6NZMJw4VDwO7rYNJXR+9mdypLmqFZI7Gxh7FC+yd35fxfj6T8vkFJFFvHXTTppbSQGcm9LFNJ1I9rhttbN6z9Mtclx"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S6",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-s6-added-result-without-proof",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNq1VF1v0zAUfe+vuIomASItzdq1pIgHPjQJiYdJPK7TdG1ft9acuNgOWzXtv3PtpGUTCIEQD019P3zuyfFx7kdQaOcbjMUKih3uyI8VbsahEyGa2EXj2ldVUXKbwECpSVYVVbWuFE51PVOIejatFdZ1jfPFGZ0SzlSll/p0vlxUVIuz5XJBellNX9N8dqbmGYyxbUY7N3ex87QC1xJYahoETzuLkhSIPeTV1llFHiLdxbzZU+O+pd2XI4CCN622aHUxgqtURaWG0j3/oDApLPQwZwBvqM1YXL8xbe7Iw4ecRUH2Eb0h3WKTSX+JvpOcRwv6SUOIGHts7vrUQtwS0B2LalISnIaPpE1rkqwwmyxKOFmvL/zlel2CeAZvQcB6fUtqQ/zPh7IN+v4cjX3gsLzih00F7VFWp/DysJzDc3095VhfVy9OJgOXnXdOJx687jPMxKJpU+7dgfgbaF2ENIr4YWSYsI7wMGiZmIQnamrvmgTAZ7ESfgCO7s8k7gKj9SnF4/rkB2fawEphBOUyG0U7ahU7guVQFMk3hs1xuyUm6bOmEf2GInztyO/BSdn5AAxXgtEJocxNrou7LoIw8SCJtNj1JsYA0kRSQ4Gxfc5fJNHSOX3OVnw/qaa9IOVPCgjrxOqW/lICgfJm413H0W9gRWoY/x/ssG+Es0aON8nN/zRhcIkyQW7TiTxxSvLOkHh8S8s+ls6v2ENj8t75BJahuCD2Pzb9itCjVh7ZHS7b8TsS+K3geA+Pbh49fAdoAnLB"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S6",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-s6-proof-defers-to-the-paper",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNq1VNtuEzEQfc9XjFaVALEJ2SZN2CAeuKgSUh8q8dhUlS/jrKnXDraXNKry74y9m9IKhECIh2x2bmeOz4z3fgSFcr5lsVhBsWVb9GPJNuPQ8RB17KJ29lVVlJTGWcCUJKoKq1pVkk1VPZOMqdm0lqyuazZfnOEpspms1FKdzpeLCmt+tlwuUC2r6Wucz87kPIMRtslo5/oudh5X4CyCwbZl4HFrmEAJfA/5rXFGooeIdzEXe2zdt1R9NQIoqGjVMKOKEVynKJNyCN3TDwqdzEINfQbwFm3GovittjkjNx98hnE0j+gNbsvaTPpz9J0gPzOgniSEyGKPTVmfLMQGAe9IVJ2c4BR8RKWtTrLCbLIo4WS9vvRX63UJ/Bm8BQ7r9Q7lBumfhtIEdX/OtDmQWV7Tw6SA8kxUp/Dy+DqH5+pmSra6qV6cTAYuW++cSjzeBdA9lTzfEnY6NtkWzhJjGwMw+aULEeWxmEgbpm0uP57xDVgXIbFCemgRJiQ5HAbZE+nwRHjlXZsAaGwr7gfg6P5sGl0gtN4lqV3v/OC0DcScRZAus5G4RStpeUg5iRF9q2mPdg0SSZ/PGJnfYISvHfo9OCE6T6e1sgStEkKZk1wXt10EruNRAGFY1+87CyA0STMECNtn/2XSN430Im/t+0k17QUpf1KAG8dXO/xLCTgTtxvvOrJ+A8tTwvj/YId9y53RYrxJi/9PHYYtkTqIJk3kyaak3Rkcjy902dvC+RXt0Bi9dz6BZSgK8P2Pol8RepRKLbvjvXz45AQ6FTxc2YdtHh2+A5Q0gs0="
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S6",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-s6-proof-names-the-removed-node",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNq1VG1r2zAQ/p5fcZjCNuZkcZMmc8Y+7IXCYB8K27emlJN1ikVly5PkpaH0v++kOG3DxtgYA9vRvejR3fOccjeCTFnXYMhWkHXYkRtL3Ix9L3zQoQ/atq+KLOc0gZ5iUlUUVJSqkDhV5Uwiqtm0lFiWJc4XZ3RKOJOFWqrT+XJRUCnOlssFqWUxfU3z2ZmcJzDGNgntXN+G3tEKbEtgqGkQHHUGK5IgdpBWtTWSHAS6DWmzo8Z+j7svRwAZb1rVaFQ2gqsYRSmH0B2/kOloZmo4ZwBvqE1YHL/RbcpIhw8+g4LMk/IGd4tNKvpLcH3FfjSgjhJ8wLDH5qxPLYSagG6ZVB2dYBV8JKVbHWmF2WSRw8l6feEu1+scxDN4CwLW6y3JDfEvi1J7dXeO2tyzmV/xx8SAclgVp/DysJzDc3U9ZVtdFy9OJkMtnbNWxTq+1toDP58Tu+8nxTSHbW09AbpNnwrDrjOaPGytk8DzsF/U5OiAxl0Y1G3Ee3do+g20NkAsk/ijKz9hDeB+0CF24Y+UUM42EYB1XAk3AAf7Z/L0ntH2LsnH7Z0frG49s4wBpE3VSOqolTxNTKWkQK7RPFjbmrhIl/QI3DUF+NaT24Gtqt55YLgctIoIeUqyfej6AEKHAwGVwX5/AdBDpQPJIbCNNEX/RSQ8avxI9J6Q/CcGhLFitaW/pEBgdbNxtmfrN7AiJoz/D7bfNcIaXY038Sb80wnDlEjtqzoqcjQpcXYGx9Mbnu/tyroVz9CYnLMugiUoDojd46ZfFfQk9TD6R/9BnruChzv8MM2j+x+CvYgm"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S6",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-s6-proof-is-a-sketch",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNq1VFtr2zAUfs+vOJjCNuZkcZMms8cedqEw2ENhj00pR9JRLCpbniSvDaX/vUeO0wsbY2MMElvn9p1P5+LbCWTa+QZjVkHWYUd+qnA7Db0I0cQ+Gte+KbKc3QQGSk6yKKgodaFwrsuFQtSLeamwLEtcrk7omHChCr3Wx8v1qqBSnKzXK9LrYv6WlosTtRzAGNsOaKfmJvaeKnAtgaWmQfDUWZSkQOxgONXOKvIQ6SYOwZ4a9yNFn08AMg6qarQ6m8BFsqJSo+mW/5CZJGZ6zDOCN9QOWGy/Mu3gMSQfdRYF2Sf0RnWLzUD6W/S9ZD1a0M8cQsS4x2avLy3EmoBuuKgmKcFp+EzatCaVFRazVQ5Hm82ZP99schAv4D0I2GyuSW2J39yUOujbUzT2jsX8gh82GbRHWRzD68NxCS/15ZxlfVm8OpqNXDrvnE48ztIBwhVFWVeJDrZcWxdrCEZRyEG6pkNP/CatjTRMlbXJS7pW2l7RAZODLZo2oX44XP0dtC5CIkv8MDLMuBNwN3Yj3SU864f2rkkA3M1K+BE4uj9rUh8Yba9SnG6v/ORMG7jWGEG5gY2ijpg+F1nwOZJvDI/XdU1M0g9diei3FOF7T34HTsreh3TjHIxOCPng5PrY9RGEiYcCSIv9fg0wgDSR1GhgbE+P1ebf12GYP86K+b4g+U8VENaJ6pr+sgQC5dXWu56l38CK5DD9P9hh1whnjZxu0z78U4ZxSpQJsk4deTYpaXZGxdM9z/eydL7iGZqS984nsAGKDWL3GPQrQk9cOWV/WNeHL1HgW8HDJj9M8+TuHn+0i2c="
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S6",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-s7-cycle",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNq1VE1rGzEQvftXDCaQlq5db+zYtUsP/SAQ6CHQYxzCSBp51eyuXEkb24T8946068SmpbSQHlarGY3ePL0Z6aEHfW1dhaG/gP4a1+QGClcD3wgfTGiCsfXbvJ9xmEBPMUjmOeVznSsc6flYIerxaK5wPp/jZHpOZ4RjleuZPpvMpjnNxflsNiU9y0fvaDI+V5MExthlQrsw29A4WoCtCUqqKgRH6xIlKRA7SLPCloocBNqGtNlRZe/j7useQJ83LQosdb8HN3EVleqWHviDvolmX3d5OvCK6oTF63emThEpeecrUVB5QK9z11gl0t+CayT7sQR9FOADhhaboy5rCAUBbVlUE51gNXwhbWoTZYXxcJrByXJ55a6XywzEKXwAAcvlhtSK+M9FKbx+uEBTPrKZ3fBQxgXtUOZn8GY/ncArfTtiW9/mr0+GHZe1s1YfnCHpB1zsxMo/H2HFnIdwGcB4qG0AhLQ1AxPi7J6SuzD1KgOsFcQK3RvacEkcfScZPEcmANoaz5a3nAJDyhPBTz2gM6GoKBiZIAxHyYLkHf+wBhHJ+UBqz501K9HUkf3HvcTvE7koCvFgpB9yxeGxq3rUzB/VXTtbRQA+9UK4DjjYv2uGxjNa61KcrnV+tqb27dGUTWwUrYmPw8UUPA/kKsNtvCmISbY6B3QrCvCjIbcDK2XjfFSAxdURIUtBtgnrJoBgGbukssSmvW7IEhmWpltgbJf8V7FGsaO+pkvzaZiPWkGyXxQQpRWLDf2jBALl3crZhq0/wIoYMPg/2H5XCVsaOVjFe/fCGaR1C26NATlnX6Q7umt21JXKeFnEDjjqzNirnePw/cpa+5hY9N20qcTuedPvOB6Ecspm/ww9vbCeVYSnF+qJZ+/xJ6ss0Ak="
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S7",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-input-repeated-key",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNq1VNtqGzEQffdXDEsgLV273tixuy596IVAoA+BPsYh6DLaVaNduZI2tgn59460GychpbSUwl6kmdGZM0cj3Y0gU9Y1LGQryDZsg24sWTX2HfdBhy5o274tspzCOPMYg0RRYFGqQrKpKmeSMTWblpKVZcnmi1M8QTaThVqqk/lyUWDJT5fLBaplMX2H89mpnCcwwjYJ7UzvQudwBbZFMNg0DBxuDBMoge8hjWprJDoIuAtpscPG3sbVlyOAjBatamZUNoKr6GVSDq47eiHTcZqpIc8A3mCbsMh/o9sUkZIPNsM4mif0BnPLmkT6W3CdIDszoJ4F+MBCj01R5y2EGgF3JKqORrAKvqDSrY6ywmyyyOFovb5wl+t1DvwYPgCH9XqLskL606bUXt2dMW3uaZpf0cdEh3JMFCfw5mE4h1fqekpzdV28PpoMXDbOWhV5fARj2wpYK0Ewh6ozkHzEjgWIerMor0f0VI7z4QXCoELaAaB2SXX5RxEqqnoC5wG0h9ZGzLQ0Bx3i6BaTudZtlScaMeetxi1ldfgdRfAUmQBwpz3NvO3JxTwR/NgDczrUDQYtEoSmKFGjuKEfa4FHcj6gfOBOqhum277+YZPeJ3JRVqSPFn5CPQP3Q99E1f2zzlHONhGAql5xNwAH+2ft1HlC602S0vXGz1a3vi9N2sRG4gapHGoHTuOArtF0ELY1Esle58BchQF+dOj2YIXonI8KkLgqIuQpyHZh0wXg+rB5wrCuP7CMJNIkzeAgbJfsF6kJ6Pmajt2nSTHtBclfKMCN5ast/qUEnImbytmOZr+B5TFg/H+w/b7h1mgxruLJ/acMQ5dI7UUdd+RZp8TeGQxPb6S8nwvrVtRDY3TOugiWoMjB94+LfkXoSSil7B4ulsOd6akqONw5h24e3f8EYmjFoA=="
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "input",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-input-not-an-object",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNqLVipILEgt0k1JTNctLk0qLsksKS3JzM/TN1SKBQCV0go4"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "input",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-input-not-a-zlib-stream",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "bm90IGEgemxpYiBzdHJlYW0="
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "input",
+   "substitution_sha256": "",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-discharge-by-blob",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNpVj91qwzAMhV8l+GqDZYubvzq0b7G70YEcyWnAjoPtlI2Qd59t2EWvpHN0+CTtTFlnILChYCus5EqEqfSb9GEOW5jt8sHZW8EkeEqZkXPiQnGESokaAVRdCQQhBDRdSyeCGrnq1anpO05Ctn3fkep5daambrFJLEfGPhLti9FPGCxqdos2ICYvtYQT+X/haNUwZr0fUePsxzu4KRP2nH1ixYgmM8zLg1w8OiHkb05IbeWgIYQ54fJON22Glvz+07TwAUIs5uXzTgFei8u1mL73Eo93dtyOP9ilYMM="
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S4",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-blob-only-cut",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNqVlNtO20AQhl9l5JsmIilxDqROr1sJqZWg9KJSBdLYO7ZX2YO7uw6kiHfvrMEhQGjL3fx7+OebmbVvk9I6jSFZQdJgQ24ssBr7NvdBhjZIa47TZARJjp7imSJNKc3KVOCkzGYCsZxNMoFZluH8ZEFTwplIy2U5nS9PUsryxXJ5QuUynXyg+Wwh5tHLkbab6PYzoZuwwtbF1RjmSvZhgb4P13kfKTJ9qKVZ97EVKoaK9Kpqxg7vd6KsCTfbXkizIcdlPEiFIciCxiUWwe8WSVTkdkqWoY8bR6W86ZWjqlXo5O+dnW9wzzw4qZNLFihErDSG0dr3wlGjsOj07R1rIX1Ro6u6vtx2Z7sOPYUKtV5xxY6ReTRdgnzbncuVzVcotPRe5lLJsL1P76pWk+nmOzhbDMEHDOQh1Bjg02B6fjQdgvTASlsfYHB+lA6Pp1cKdS7wfcJoz2CetNSRaA+jaGtksB30f6A9nF4BQmWtAI1u/c5H2GINNXqIQ91BhtoRfYTB2WwYb6zJGVKwoYItQBpe6iDvr7ONs9fA4ymos0LwtXVs1aogG0UjuK5lUYO3asOd+XpxevHPuh9mwPW9VvebKuQB2PJAjYc49t/k6+3f7fiXz+Dbgtv25fTzd3AUWmdetiTSbEbA3cxtCFaDLBmIHEVSY81fwRpnm8f84yA1vfmhzpmQE0L0lKbiNlEDpTTiACsPvLFqa6yWqCCme06395eJoL+weQHUr+1j9BuP3wxBYT0F8K2OLfpxteZX53LkpJzz8u4P43+6RQ=="
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S4",
+   "steps": -1
+  }
+ },
+ {
+  "id": "fail-uses-edge-from-blob",
+  "check": "paperdag_gate",
+  "inputs": {
+   "substitution": [
+    "eNplUsuS0zAQ/JUplw9QJCHePIzzAZzYE9xYQo2jka1Cj6ykJLW4/O9olHjZwEUuzbR7Wj09FNJ5g7HYQXHEI/m5wG4eTm2IKp6icvZjVcygaDEQYw5VRVUjK4FL2awEolwtG4FN0+B6u6EHwpWoZC0f1vW2oqbd1PWWZF0tP9F6tRFr5krMOpOdAgUg0RFI7wwgtNq1jPBk3Jkh3wtNZmec81T8SA0UgqtDofhbWLrcmqn3S9lcTH8Y5ILGljRXHvlm0eShjxM+RIxkyOa3f6EIZQ9PT8qmIxnSt+3wefw5PO/tuBcl9HgmSGCvkubYYwT0BFpZQq9fIM2mI6XDRkjSPZRvWZ7LGVxU7KEUiV0T2HIB33qykNwHSnhmiNTxj6FM/ARnOkTnAxMF1Rnch3f9+xlMtyF8qMZbRbgY7jpinnsl02dfMagATt6rmt62YDeO3jnJTiRZkD0CQZG8URb5TfLuiaSzcwESrXX2N3m3KEbeEK8zXHc0LYTXzCN4yXznLe9YWZhfSHV9zN3o/tuoIINXChZ1w2bf32i5zRUqHHr0HV1ns4x/8jPL0dgdNIagpDogpzunqn3J0L+zc9R8d5rS8TVlB17zwhPHPzs3DVQ="
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "first_failed_check": "S5",
+   "steps": -1
+  }
+ }
+]

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "title": "Baseline: the paper as published, nothing removed, nothing added",
+  "claims": [
+    "substitution.json is a VALID substitution of the Praxis paper DAG in the sense of rules.md: structural checks S1 to S8 pass on exactly these bytes, and the verifier lists no semantic obligation for it."
+  ],
+  "experiments": [],
+  "checks": [
+    {
+      "check": "paperdag_gate",
+      "inputs": {
+        "substitution": [
+          "eNpNjjsOgzAQBXtOsaIGBWPAMWWuEaVYs2uwxE/YpIly9/ApSDn7RqP9RACxnZYBQ1xDPOPMS0rYpn41PriwBjeNNxEnu2fQ8241QrDQVhBmVktCtDLThFprLKqSc0ZJwiqbF6oSrE2pVMVWiezOhSypOGtbvT9yjy3bu5FrCB3D8QKgh3k1vfMdUwLjFDo3trDwML3/D0jEdObObes9Xwdv0wVMLfsLyfmmw6U99egb/QC7gU46"
+        ]
+      }
+    }
+  ]
+}
