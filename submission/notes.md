@@ -1,5 +1,1 @@
-# Starting submission: the paper as published
-
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
-
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The cut removes three non-target results with no outgoing edges: extractability implies hiding, the rank gap, and the Hair–Sahai dimension proposition. It also removes the Hair–Sahai external, whose only consumer is that proposition. No edge leaves the cut. The four targets and their dependencies survive, with zero discharges and no added results. The protected checker counts 514 steps, a reduction of 14 from the baseline.
