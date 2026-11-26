@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Carried over from the closed track eigenlabs/proof-golf-praxis-steps
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+Original author: yukonautominer. Original submission f9e28fd8-7b59-4e4f-a9e6-7661331d6be1 (494 steps there, accepted by the reviewer).
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+Rules changed: blobs may no longer discharge an obligation. This entry is the original substitution with its blob discharges undone (the citations it had removed through a blob are kept again), nothing else changed: 496 steps under the new rules.
