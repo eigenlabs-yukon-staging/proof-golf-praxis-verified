@@ -1,9 +1,385 @@
 {
-  "format": "paper-dag-substitution/1",
-  "base": "c11e19f1da0f93daaf309da999a465e2ea3d1f7f24761e9b5776ef7108e435d4",
-  "title": "Baseline: the paper as published, nothing removed, nothing added",
-  "remove": [],
-  "add": [],
-  "edges": [],
-  "discharge": []
+ "format": "paper-dag-substitution/1",
+ "base": "c11e19f1da0f93daaf309da999a465e2ea3d1f7f24761e9b5776ef7108e435d4",
+ "title": "Use direct heavy, lattice, and QAP background discharges; initial coincidences taken directly from the view lemma",
+ "remove": [
+  "lem:we-hiding",
+  "lem:rank-one",
+  "lem:gp-rank",
+  "lem:ledger",
+  "lem:moore",
+  "lem:classification",
+  "lem:heavy",
+  "lem:half",
+  "lem:init",
+  "lem:charged",
+  "prop:reduction-time",
+  "prop:hs-dimension",
+  "ext:br",
+  "ext:hs"
+ ],
+ "add": [
+  {
+   "id": "new:half",
+   "kind": "lemma",
+   "label": "Conditioned failure bound",
+   "name": "Correct guess and extraction failure under the coupling",
+   "statement": "In the extractability experiment, $\\Pr[b'=b\\land\\mathsf{Fail}]\\le 1/2+(f_0+f_1)/4$.",
+   "explain": "Condition on the coupled randomness shared by the two message experiments.",
+   "proof": "For a fixing $C$ of the coins of the coupled run $\\mathsf{R}_\\$$ with no target query, the conditional probability of $b'=b\\land\\mathsf{Fail}$ is at most $1/2$ because the output bit is fixed independently of $b$.\nFor a fixing $C$ with a target query, the same conditional probability is at most $\\big(1+\\Pr[\\mathsf{Fail}\\mid C]\\big)/2$ by the pointwise bound $\\mathbf1_{b'=b\\land\\mathsf{Fail}}\\le (1+\\mathbf1_{\\mathsf{Fail}})/2$.\nAveraging the two bounds over the coupled coins and the uniform bit gives $\\Pr[b'=b\\land\\mathsf{Fail}]\\le 1/2+(f_0+f_1)/4$."
+  },
+  {
+   "id": "new:gp-rank",
+   "kind": "lemma",
+   "label": "Guessing probability bounds",
+   "name": "Pivot-column conditioning",
+   "statement": "For a stack $\\mathbf W$, let $A$ be the matrix obtained by stacking its cells vertically. Then $\\operatorname{gp}(\\mathbf W)\\le g^{-\\operatorname{rank}\\mathbf W}$. For every $v$ in its row space, $\\operatorname{gp}(v^\\top)\\ge\\operatorname{gp}(\\mathbf W)$.",
+   "explain": "Condition on the nonpivot coordinates of the independent input to the sampler.",
+   "proof": "Choose a basis of columns indexed by $J$, including column $0$ whenever it is nonzero.\nCondition on $r_i$ for $i\\in[N]\\setminus J$, which fixes the contribution of all columns outside $J$ because column $0$ is zero if excluded.\nThe independence of the columns indexed by $J$ implies each fixed value of $Ar$ has at most one possible assignment to $r_J$.\nThe conditional probability of any specified $r_J$ is at most $g^{-|J|}$ by the sampler's independent choices on $[N]$ and its conditional uniformity at $0$.\nAveraging gives $\\operatorname{gp}(\\mathbf W)\\le g^{-|J|}$ since $|J|=\\operatorname{rank}\\mathbf W$.\nFor a row-space vector $v$, choose $a$ with $v^\\top=a^\\top A$.\nFor each $u$, event inclusion gives $\\Pr[Ar=u]\\le\\Pr[v^\\top r=a^\\top u]$.\nTaking maxima gives $\\operatorname{gp}(v^\\top)\\ge\\operatorname{gp}(\\mathbf W)$."
+  },
+  {
+   "id": "new:ledger",
+   "kind": "lemma",
+   "label": "Ledger interpolation bound",
+   "name": "Security ledger by the quadratic chord gap",
+   "statement": "Under (P5), for every integer $0\\le Q<2^\\lambda$, $E(2Q+2)\\le (Q+1)/2^\\lambda$. Write $U=2^\\lambda-1$ and $F(x)=E(2x+2)-(x+1)/2^\\lambda$.",
+   "explain": "Compute the exact difference between the chord and the quadratic.",
+   "proof": "The first inequality in (P5) gives $F(0)\\le 0$.\nAdding the two inequalities in (P5) gives $F(U)\\le 0$.\nFor $0\\le t\\le1$, expansion gives $F(tU)=(1-t)F(0)+tF(U)-(2\\theta+20\\varepsilon_f)t(1-t)U^2$.\nBounding the three displayed summands by zero gives $F(Q)\\le0$ for $Q\\in[0,U]$."
+  },
+  {
+   "id": "new:charged",
+   "kind": "lemma",
+   "label": "Charged mark bound",
+   "name": "Charged comparisons from symbolic entries",
+   "statement": "With $u=2Q+2$ in the extraction experiment, the probability of a charged first mark is at most $N_{\\mathrm{cmp}}(u)(\\theta+\\varepsilon_f)+(\\binom{L+3u}{2}+L+3u)\\varepsilon_f$. Every run reaching its target query has a first mark of type $\\mathsf{init}$, $\\mathsf{guess}$, charged, or good. Write $\\varpi=\\Omega_{22}\\zeta\\zeta'\\zeta''\\varepsilon$ and $d_f=3D+2n+2K_1+6$.",
+   "explain": "Classify comparison coefficients by their guess-variable degree before applying the grid bound.",
+   "proof": "Use the coupled run $\\mathsf R_\\$$ to determine the first mark by the coupling definition.\nThe symbolic game and the real run agree through the history before the first evaluated collision by the lazy-sampling demand.\nNo first mark is set before any collision or target query by (M1)–(M4).\nA collision of formally unequal received expressions gives $\\mathsf{init}$ by (M1).\nA good collision cannot have a fresh guessed operand as the later entry, because its uncanceled fresh variable would violate the definition of good.\nThe later entry of a good noninitial collision is therefore a result.\nIf a good noninitial collision precedes a target query, (M3) sets a good $\\mathsf{diff}$ mark.\nIf a target query comes first, (M4) sets a guess mark when its label has no entry.\nIf the label has an entry, the agreeing tables identify that entry as a symbolic key value.\nIn that case a good key value gives a good $\\mathsf{key}$ mark by (M4).\nThus every charged first mark is accounted for by a bad collision or a bad key value in the evaluated symbolic game.\nThe monitor definition classifies all first marks as $\\mathsf{init}$, $\\mathsf{guess}$, charged or good.\nBy (M4), a run reaching the target query has a first mark.\n\nIn a fixed symbolic transcript, compare two specified entries or one specified entry with the key.\nIf the comparison contains guesses, choose a nonconstant guess monomial with formally nonzero coefficient.\nThe expression rules make this coefficient a nonzero scalar or a formally nonzero source-group expression.\nAt each fixed $r$, clause (e) of the incoming view result and $\\varepsilon_f<1$ imply that the latter coefficient is nonzero on some valid encryption coins.\nAs $\\varpi$ never vanishes on valid coins, the cleared comparison is a nonzero polynomial at fixed $r$.\nThe cleared guess-free term has degree at most $d_f$ by the incoming degree bound.\nThe cleared coefficients of linear guesses have degree at most $d_f$ because they are cleared constants or source-group values.\nA pairing's product of two linear source expressions makes the coefficient of any quadratic guess monomial a field constant.\nAfter clearing, such a coefficient has degree at most five because $\\varpi$ has five linear factors.\nThe total degree bound is therefore $\\max(d_f,d_f+1,7)=d_f+1$.\nThe grid polynomial bound with uniform guess values and valid encryption coins gives coincidence probability at most $(d_f+1)/(q-D)$.\nThis is at most $\\varepsilon_f$ by its definition.\n\nFor a comparison with no guess variable in a source group, the incoming coincidence bound gives probability at most $\\varepsilon_f$.\nFor one in $\\mathbb G_T$, the incoming bound gives the same probability over encryption coins at any $r$ where the asserted equality is not an identity.\nA comparison of distinct symbolic entries is nonformal by the symbolic game's entry rule.\nA key comparison to $\\kappa$ is nonformal by the incoming bound.\nFor an identity to give a bad event, the mark stack must be light because it is nonzero by the incoming demand.\nAll such $r$ lie in a single fiber of that stack by the incoming identity-locus demand.\nThis fiber has probability at most $\\theta$ by lightness.\nThe total probability of a bad event for a comparison without guesses is therefore at most $\\theta+\\varepsilon_f$.\n\nThere are at most $L+3Q$ entries because each call has at most two operands and one result.\nThis bounds the number of comparison pairs and key tests involving guesses by $\\binom{L+3u}{2}+L+3u$ since $Q\\le u$.\nFor a collision without guesses at call $j$, the later entry is a result since a fresh guess could not cancel.\nIts earlier partner is one of at most $L+3j-1$ entries.\nA key test without guesses involves one of the at most $Q$ results or the two received target-group elements.\nSumming the result-pair and key-test counts gives at most $QL+3Q(Q+1)/2+2$ non-guess comparisons that can account for a charged first mark.\nThis count is at most $N_{\\mathrm{cmp}}(u)$ by substitution of $u=2Q+2$.\nThe union bound using these two comparison counts yields the claimed charged-mark probability."
+  },
+  {
+   "id": "new:low-rank-witness",
+   "kind": "lemma",
+   "label": "Witness in low rank",
+   "name": "Witness from a nonzero usable stack of rank at most three",
+   "statement": "Write $\\mathcal V$ for the stack's row space, $d=\\dim\\mathcal V$ and $K=\\mathbb F_{q^n}$. For a matrix $B$ with columns a basis of $\\mathcal V$ over $\\mathbb F_q$, let $u_j$ be the transpose of row $j$ of $B$ and $h_s=B^\\top\\sigma^s(z)$, where $z$ is the coefficient vector of the form. Set $a=n/2-1$, $b=n/2$, and $c=n/2+1$. If the stack is nonzero and usable, $d\\le3$, and $\\mathcal V$ contains no kernel vector, then $\\mathcal V$ contains a witness of $S$.",
+   "explain": "Use the three tied matrix slices to isolate the witnesses in a Boolean cube inside the row space.",
+   "proof": "The nonzero stack has $d\\ge1$.\nThe coordinates of $h_0$ are linearly independent over $\\mathbb F_q$ because a dependence would give a kernel vector in the row space.\nFrobenius carries that independence to $h_a=\\sigma^a(h_0)$.\nThe Moore determinant of the first $d$ consecutive conjugates of $h_a$ is nonzero by the determinant demand.\nThus $h_a,h_b,h_c$ span $K^d$.\nIndex the three tied matrices by $W_a=W_U$, $W_b=W_V$ and $W_c=\\sigma^c(W_U)$.\nChoose a left inverse $E$ of $B$ over $\\mathbb F_q$.\nDefine $M_s=EW_sE^\\top$ for $s\\in\\{a,b,c\\}$.\nThe column and row spaces of $W_s$ are contained in the scalar extension of the row space of the stack, because $W_s$ is a linear combination of symmetric cells.\nApplying $BE$ on the left and its transpose on the right gives $W_s=BM_sB^\\top$ because $BE$ projects onto the column span of $B$.\nEach $W_s$ passes the linear tests over $K$ by linearity in the cells.\nThe ties give $M_s h_t=M_t h_s$ by injectivity of $B$.\nThe ties imply $(\\sum_s e_s M_s)h_t=0$ for every $t\\in\\{a,b,c\\}$ whenever $\\sum_s e_s h_s=0$ with $e_s\\in K$.\nSince the $h_t$ span, this yields $\\sum_s e_s M_s=0$.\nThere is therefore a linear map $h\\mapsto M(h)$ with $M(h_s)=M_s$.\nDefine $T(h,x,y)=x^\\top M(h)y$.\nThe form $T$ is symmetric in $x,y$ because $EW_sE^\\top$ is symmetric for each $s$.\nThe ties extend by bilinearity to symmetry in $h,y$.\nThese two transpositions make $T$ symmetric.\nBooleanity of the $W_s$ gives $T(h_s,u_j,u_j-u_0)=0$ for $j\\in[N]$.\nSince the $h_s$ span, $T(h,u_j,u_j-u_0)=0$ for all $h$.\nThe identity $a+c=n$ gives $M_a=\\sigma^a(M_c)$ by the matrix definitions.\nThe even powers in $W_V$ give $M_b=\\sigma^b(M_b)$.\nWhen $u_0=0$, take a basis $l_1,\\ldots,l_d$ from the remaining rows $u_j$.\nBooleanity and symmetry imply that each $T(l_i,l_j,l_k)$ with a repeated index is zero.\nIf $d<3$, this forces $T=0$.\nIf $d=3$, the form is determined by its one all-distinct entry $e=T(l_1,l_2,l_3)$.\nIn that basis the off-diagonal entries of the bilinear form $T(h,\\cdot,\\cdot)$ are $e$ times the coordinates of $h$ at the corresponding missing indices.\nThe identities for $M_a,M_b$ therefore give $e h_s=\\sigma^s(e)h_0$ for $s=a,b$.\nIf $e\\ne 0$, then $h_a$ and $h_b$ belong to the line through $h_0$.\nIndependence of the three spanning vectors when $d=3$ excludes $e\\ne0$.\nThus $T=0$ also when $d=3$.\nThe zero form would force every cell to vanish from the factorizations of $W_a,W_b$.\nTherefore $u_0\\ne0$.\nExtend $l_0=u_0$ to a basis $l_0,l_1,\\ldots,l_{d-1}$ of rows $u_j$.\nFor $\\delta\\in\\{0,1\\}^{d-1}$ let $p_\\delta$ have coordinates $(1,\\delta)$ in the basis dual to $(l_0,\\ldots,l_{d-1})$.\nPut $w_\\delta=Bp_\\delta$.\nThe relations $T(h,l_i,l_i)=T(h,l_i,l_0)$ for $i>0$ make the value of a basis triple depend only on its set of distinct nonzero indices.\nThe basis-triple entries of $\\langle h,p_\\delta\\rangle\\langle x,p_\\delta\\rangle\\langle y,p_\\delta\\rangle$ are the Boolean monomials indexed by those sets.\nThe evaluation matrix with one row per subset is invertible because the square-free monomials form a basis of functions on the Boolean cube.\nConsequently $M(h)=\\sum_\\delta C_\\delta\\langle h,p_\\delta\\rangle p_\\delta p_\\delta^\\top$ for coefficients $C_\\delta\\in K$.\nThe same evaluation matrix on pairs of basis vectors shows that the squares $p_\\delta p_\\delta^\\top$ are independent, since every subset of $[d-1]$ has size at most two.\nPut $x_\\delta=\\langle h_0,p_\\delta\\rangle$, which is nonzero by independence of the coordinates of $h_0$.\nComparing the square coefficients in the Frobenius identities gives $C_\\delta\\sigma^s(x_\\delta)=\\sigma^s(C_\\delta)x_\\delta$ for $s=a,b$.\nHence $C_\\delta/x_\\delta$ is fixed by both $\\sigma^a$ and $\\sigma^b$.\nThe two powers differ by one, so $C_\\delta/x_\\delta$ is fixed by $\\sigma$.\nThus write $C_\\delta=\\chi_\\delta x_\\delta$ with $\\chi_\\delta\\in\\mathbb F_q$.\nLet $L$ be any linear test of $S$ over $\\mathbb F_q$.\nApplying $L$ to the displayed decomposition at each $h_s$ yields $h_0^\\top Q_L h_s=0$ for $s=a,b,c$, where $Q_L=\\sum_\\delta\\chi_\\delta L(w_\\delta w_\\delta^\\top)p_\\delta p_\\delta^\\top$.\nThe spanning property gives $h_0^\\top Q_L=0$.\nThe matrix $Q_L$ has entries in $\\mathbb F_q$.\nThe independence of the coordinates of $h_0$ gives $Q_L=0$.\nThe independence of the squares gives $\\chi_\\delta L(w_\\delta w_\\delta^\\top)=0$ for every $\\delta$.\nSince the stack is nonzero at least one $\\chi_\\delta$ is nonzero.\nFor such a $\\delta$, $w_\\delta$ has coordinate zero equal to $1$ by its definition in the dual basis.\nSince $L$ was arbitrary, the moment matrix of this assignment passes all tests.\nThe test definitions therefore make $w_\\delta$ a witness."
+  },
+  {
+   "id": "new:reduction-time",
+   "kind": "proposition",
+   "label": "Asymptotic reduction time",
+   "name": "Operation count for both reductions",
+   "statement": "Under the hypotheses of the extraction theorem, if the adversary takes time $t$, makes at most $Q$ generic group calls, and makes at most $Q_H$ queries to each random oracle, both reductions $\\mathcal B_0,\\mathcal B_1$ take time at most $t_R=t+O(Q+d_R Q_H+\\mu)+\\operatorname{poly}(D,\\log q)$ in the operation model of (R1)–(R5).",
+   "explain": "Keep only the asymptotic overhead used by the extraction-error corollary.",
+   "proof": "Sample the seven points of (R2) at the beginning using the incoming invariance under sampling them early.\nThe private and recovery points need $O(N+1)$ independent coordinate samples each from the indicated finite sets.\nThe public polynomials need $O((N+1)D)$ coefficients because there are $2(N+1)$ interpolation polynomials and three extra polynomials of degree at most $D$.\nThe number of field coefficients of $M$ is $k(\\ell+1)d_R$, polynomial in $D$ since $N<D$ and $(k+1)d_R=n\\le D$.\nThe challenge entries and fresh seed are installed with one write per coefficient or oracle table entry, so (R1) programs its initial queries in time polynomial in $D$.\nThe forms of $M$ can be computed in polynomial time by multiplying its ring entries by the coordinate monomials and reducing modulo the defining polynomial of $R_q$.\nThe sampler draws at most $N+1$ independent search coordinates and obtains $r_0$ with $O(N)$ integer operations.\nThe published exponent count is polynomial in $D$ because each index in the encryption formulas ranges over at most $2D+1$ values by (P1) and the chunk definitions.\nEach published exponent at any one point can be evaluated in polynomial time from the formulas, using polynomial evaluation and repeated field arithmetic.\nThe cost of assigning the initial labels is polynomial in $D$ because the model charges each table lookup, fresh sample and insertion as one operation.\nApplying the stored key-oracle answer to the message in string-sized XOR blocks costs $O(\\mu)$ operations.\nUse one table from exponents to labels and another from examined strings to exponents or rejection for each group.\nMaintain each table's entry count with its insertions.\nAt a previously unexamined operand string, uniformity of the remaining injection gives validity probability $(q-a)/u$ for $a$ assigned exponents and $u$ unexamined strings.\nImplement the decision with one uniform sample from the interval specified by endpoints $0,u-1$ after the generators have labels and one comparison with $q-a$.\nFor a new valid operand, sample its exponent uniformly from unused exponents.\nFor a result with an unassigned exponent, sample its label uniformly from unexamined strings.\nEach generic call makes at most two operand examinations and at most one result assignment, including the negative for a name request.\nA flag on each target-group label records its eligibility for name requests, with one update when supplied initially or returned by addition, scalar multiplication or pairing.\nThe specified group formulas use a constant number of field operations on the exponents per call.\nThe expression record of a result needs one arithmetic node pointing to its at most two operand records, using the constant zero node for any missing record.\nThe private test maintains one field value per record with the same arithmetic on the private point's operand values.\nThe discrepancy test makes one comparison on the private values at each target-group result.\nAt the first mismatch retain pointers to the two records in the comparison.\nThe target record is available by a lookup of the target label from the masking step.\nThe table costs, record updates and discrepancy tests therefore give $O(Q)$ total overhead during group calls.\nA lazy seed-oracle entry costs $O(d_R)$ operations for its coefficient samples and table access.\nA lazy key-oracle entry costs a constant number of operations using a uniform sample from its finite output set $\\{0,1\\}^\\mu$ and a table entry holding a reference to that sampled answer.\nThe random-oracle overhead during the run is therefore $O(d_R Q_H)$.\nThe circuit for a selected expression has at most one non-input node per generic call plus one final subtraction.\nThe exponents that depend on $r$ are right-leg inputs and their alpha copies.\nAt each recovery point, freeze the right-leg inputs of the other sector at their values there to select only the chosen sector's contribution to the derivative.\nThe incoming differentiation bound gives $O(Q)$ arithmetic for the circuit's derivatives with respect to its inputs at the point, apart from the polynomial-size initial input data.\nThe chain rule maps those input derivatives to the $r$ gradient by multiplying by the Jacobian of the explicit affine input exponents, a matrix with polynomially many entries in $D$.\nThere are only six recovery points per expression, so the total differentiation cost is $O(Q)+\\operatorname{poly}(D,\\log q)$.\nIntersecting the span of the recovered vectors with the common kernel of the $n$ forms is a linear system with dimensions polynomial in $D$.\nPacking a lifted vector is polynomial in $D$ and $\\log q$ by its coordinate description.\nThere are at most two lift calls, whose time is polynomial in $D$ and $\\log q$ by the incoming lift bound and $N<D$.\nThe additional code and embedded polynomial data have size polynomial in $D$ and $\\log q$, plus $O(\\mu)$ for the chosen message.\nAdding the overheads to $t$ gives $t_R$.\n"
+  }
+ ],
+ "edges": [
+  {
+   "kind": "background",
+   "from": "blob:bound-e",
+   "to": "new:half"
+  },
+  {
+   "kind": "background",
+   "from": "blob:symbolic-game",
+   "to": "new:half"
+  },
+  {
+   "kind": "background",
+   "from": "blob:we",
+   "to": "new:half"
+  },
+  {
+   "kind": "background",
+   "from": "blob:stacks-gp",
+   "to": "new:gp-rank"
+  },
+  {
+   "kind": "background",
+   "from": "blob:sampler-search",
+   "to": "new:gp-rank"
+  },
+  {
+   "kind": "background",
+   "from": "blob:admissibility",
+   "to": "new:gp-rank"
+  },
+  {
+   "kind": "background",
+   "from": "blob:bound-e",
+   "to": "new:ledger"
+  },
+  {
+   "kind": "background",
+   "from": "blob:admissibility",
+   "to": "new:ledger"
+  },
+  {
+   "kind": "background",
+   "from": "blob:ggm",
+   "to": "new:charged"
+  },
+  {
+   "kind": "background",
+   "from": "blob:bound-e",
+   "to": "new:charged"
+  },
+  {
+   "kind": "background",
+   "from": "blob:monitor",
+   "to": "new:charged"
+  },
+  {
+   "kind": "background",
+   "from": "blob:symbolic-game",
+   "to": "new:charged"
+  },
+  {
+   "kind": "background",
+   "from": "blob:expressions",
+   "to": "new:charged"
+  },
+  {
+   "kind": "background",
+   "from": "blob:stacks-gp",
+   "to": "new:charged"
+  },
+  {
+   "kind": "background",
+   "from": "blob:admissibility",
+   "to": "new:charged"
+  },
+  {
+   "kind": "background",
+   "from": "blob:enc",
+   "to": "new:charged"
+  },
+  {
+   "kind": "uses",
+   "from": "lem:view",
+   "to": "new:charged",
+   "demand": "For a nonidentically zero target-group comparison at fixed r, or a formally unequal source-group pair, coincidence over valid coins has probability at most ε_f. No expression equals κ formally. An identity in a nonformal target comparison prescribes one fiber of the nonzero mark stack."
+  },
+  {
+   "kind": "uses",
+   "from": "lem:degree",
+   "to": "new:charged",
+   "demand": "After clearing by ϖ, a target expression minus χκ and a difference of source-group values are polynomials of total degree at most d_f."
+  },
+  {
+   "kind": "uses",
+   "from": "ext:sz",
+   "to": "new:charged",
+   "demand": "A nonzero polynomial of degree at most d_f+1 in the independent valid coins and uniform guess variables vanishes with probability at most (d_f+1)/(q−D)."
+  },
+  {
+   "kind": "uses",
+   "from": "ext:shoup",
+   "to": "new:charged",
+   "demand": "Lazy sampling of the label maps makes the symbolic and real histories agree up to the first evaluated collision."
+  },
+  {
+   "kind": "background",
+   "from": "blob:bqs",
+   "to": "new:low-rank-witness"
+  },
+  {
+   "kind": "background",
+   "from": "blob:tests",
+   "to": "new:low-rank-witness"
+  },
+  {
+   "kind": "background",
+   "from": "blob:stacks-gp",
+   "to": "new:low-rank-witness"
+  },
+  {
+   "kind": "background",
+   "from": "blob:forms-weights",
+   "to": "new:low-rank-witness"
+  },
+  {
+   "kind": "background",
+   "from": "blob:copies-ties",
+   "to": "new:low-rank-witness"
+  },
+  {
+   "kind": "background",
+   "from": "blob:kernel-short",
+   "to": "new:low-rank-witness"
+  },
+  {
+   "kind": "uses",
+   "from": "ext:ln",
+   "to": "new:low-rank-witness",
+   "demand": "The Moore determinant of elements that are linearly independent over F_q is nonzero."
+  },
+  {
+   "kind": "background",
+   "from": "blob:reductions",
+   "to": "new:reduction-time"
+  },
+  {
+   "kind": "background",
+   "from": "blob:sampler-search",
+   "to": "new:reduction-time"
+  },
+  {
+   "kind": "background",
+   "from": "blob:ggm",
+   "to": "new:reduction-time"
+  },
+  {
+   "kind": "background",
+   "from": "blob:rom",
+   "to": "new:reduction-time"
+  },
+  {
+   "kind": "background",
+   "from": "blob:enc",
+   "to": "new:reduction-time"
+  },
+  {
+   "kind": "background",
+   "from": "blob:qap",
+   "to": "new:reduction-time"
+  },
+  {
+   "kind": "background",
+   "from": "blob:forms-weights",
+   "to": "new:reduction-time"
+  },
+  {
+   "kind": "background",
+   "from": "blob:copies-ties",
+   "to": "new:reduction-time"
+  },
+  {
+   "kind": "background",
+   "from": "blob:admissibility",
+   "to": "new:reduction-time"
+  },
+  {
+   "kind": "background",
+   "from": "blob:expressions",
+   "to": "new:reduction-time"
+  },
+  {
+   "kind": "background",
+   "from": "blob:records",
+   "to": "new:reduction-time"
+  },
+  {
+   "kind": "background",
+   "from": "blob:msis",
+   "to": "new:reduction-time"
+  },
+  {
+   "kind": "background",
+   "from": "blob:kernel-short",
+   "to": "new:reduction-time"
+  },
+  {
+   "kind": "uses",
+   "from": "lem:reduction",
+   "to": "new:reduction-time",
+   "demand": "Sampling the reduction’s coins before the run changes no output."
+  },
+  {
+   "kind": "uses",
+   "from": "lem:lift",
+   "to": "new:reduction-time",
+   "demand": "The running time of LIFT is polynomial in N and log q under the extraction theorem’s hypotheses."
+  },
+  {
+   "kind": "uses",
+   "from": "ext:bs",
+   "to": "new:reduction-time",
+   "demand": "The gradient of a computation costs a constant number of operations per operation of the computation."
+  }
+ ],
+ "discharge": [
+  {
+   "edge": [
+    "lem:half",
+    "cor:ext-error"
+   ],
+   "by": [
+    "new:half"
+   ],
+   "argument": "The bound is the exact demanded inequality in the same experiment."
+  },
+  {
+   "edge": [
+    "lem:ledger",
+    "thm:extraction"
+   ],
+   "by": [
+    "new:ledger"
+   ],
+   "argument": "The statement gives the exact bound under (P5) throughout the required range."
+  },
+  {
+   "edge": [
+    "lem:charged",
+    "thm:extraction"
+   ],
+   "by": [
+    "new:charged"
+   ],
+   "argument": "The statement gives the exact charged-mark probability bound with u=2Q+2 and the required target coverage."
+  },
+  {
+   "edge": [
+    "lem:classification",
+    "lem:extractor"
+   ],
+   "by": [
+    "new:low-rank-witness"
+   ],
+   "argument": "The statement gives the witness in the row space under the required usability, rank, nonzero and no-kernel hypotheses."
+  },
+  {
+   "edge": [
+    "prop:reduction-time",
+    "cor:ext-error"
+   ],
+   "by": [
+    "new:reduction-time"
+   ],
+   "argument": "The stated time is exactly the required asymptotic bound for both reductions, so each of their success probabilities is bounded by the Module-SIS advantage at that time by the definition of advantage."
+  },
+  {
+   "edge": [
+    "lem:heavy",
+    "lem:reduction"
+   ],
+   "by": [
+    "new:gp-rank",
+    "lem:inverse"
+   ],
+   "argument": "(a) The mark stack W of a good first mark is nonzero and heavy, by the definition of a good mark (blob:monitor), so gp(W) > theta. The statement of new:gp-rank gives gp(W) <= g^(-rank W). Condition (P3) includes g^(-4) < theta (blob:admissibility), and g > 1 by (I1), which (P3) also includes, so g^(-k) <= g^(-4) for every k >= 4. So rank W >= 4 would give gp(W) <= g^(-4) < theta, which is impossible; hence rank W <= 3. So three vectors of the row space of W can span it. (b) and (c): the kernel vector v found is a nonzero vector of the row space of the heavy mark stack W with z(v) = 0, that is, on which all forms vanish (blob:kernel-short, blob:forms-weights). The admissibility blob states, in (P3), that under these conditions such a vector has a short multiple, which solves MSIS; that is, its packed vector x^ solves MSIS for the columns 1, ..., l of M, the instance named in blob:forms-weights. This is the demand. The existence also follows from the by-statements: v_0 = phi_0(v) = 0, and new:gp-rank gives gp(v^T) >= gp(W) > theta, so lem:inverse (Lemma B.7), for the prime q of Definition 3.1 and under its conditions (I1) to (I6), which are (P3), gives v a short multiple x with x_0 = 0."
+  },
+  {
+   "edge": [
+    "lem:heavy",
+    "lem:extractor"
+   ],
+   "by": [
+    "new:gp-rank"
+   ],
+   "argument": "(a) The mark stack W of a good first mark is nonzero and heavy, by the definition of a good mark (blob:monitor), so gp(W) > theta. The statement of new:gp-rank gives gp(W) <= g^(-rank W). Condition (P3) includes g^(-4) < theta (blob:admissibility), and g > 1 by (I1), which (P3) also includes, so g^(-k) <= g^(-4) for every k >= 4. So rank W >= 4 would give gp(W) <= g^(-4) < theta, which is impossible; hence rank W <= 3. This is the demanded rank bound for a good mark's stack."
+  },
+  {
+   "edge": [
+    "lem:init",
+    "thm:extraction"
+   ],
+   "by": [
+    "lem:view"
+   ],
+   "argument": "By (M1) of blob:monitor, the first mark is init only if two received elements of one group s in {1, 2, T} have one label while their expressions are not formally equal. One label means equal values, since each label map is an injection (Definition 3.1). For such a pair in G_1 or G_2, clause (e) of lem:view bounds the probability of equal values by eps_f, for every r; as r is drawn independently of c (blob:expressions), this holds for the run's r. The two received elements of G_T (L_T = 2 in blob:bound-e) are G_T and K^alpha, with values 1 and alpha*kappa (blob:enc, blob:expressions), and D := K^alpha - G_T, an expression of G_T, has value alpha*kappa - 1. D is not 0*kappa identically at any r: if alpha*kappa - 1 = 0 at a valid c, then kappa(c) != 0; as kappa = gamma_{c_key} L_rho(tau) has no alpha (blob:enc, step (5)), replacing alpha by another alpha' in F_q^* (q > 2) gives a valid c' (blob:expressions: alpha ranges over F_q^*) with value alpha' kappa(c) - 1 != 0. So clause (c) of lem:view, with chi = 0, bounds the probability that the two values are equal by eps_f, for every r and so for the run's r. The union bound over the C(L_s, 2) pairs of each group gives Pr[first mark = init] <= sum_s C(L_s, 2) eps_f, the demand."
+  }
+ ]
 }
