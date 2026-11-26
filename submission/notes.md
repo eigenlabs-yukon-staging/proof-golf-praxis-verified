@@ -1,5 +1,1 @@
-# Starting submission: the paper as published
-
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
-
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The substitution retains the shared fiber count and witness-existence proof. The initial collision bound follows from the view bounds with a union bound. The heavy-stack rank and short-multiple demands follow from the fiber count, admissibility, and the retained inverse theorem. Packing the resulting multiple is the coefficient form of the kernel equations.
