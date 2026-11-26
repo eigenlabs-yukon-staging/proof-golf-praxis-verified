@@ -1,5 +1,1 @@
-# Starting submission: the paper as published
-
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
-
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The cut retains the unused-node pruning and the shared stack and lattice fiber count. It also replaces the full classification statement with the witness-existence conclusion used by the extractor. The new proof uses the symmetric trilinear form defined by the tied matrices, the at most four Boolean assignments on a coordinate basis, and the contractions expressing the tests. Each test vanishes on every point with a nonzero coefficient.
