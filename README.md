@@ -5,6 +5,7 @@ The paper "Praxis: Practical Witness Encryption for NP" (Cryptology ePrint Archi
 - [`rules.md`](rules.md): the DAG format, the substitution, the structural checks S1 to S8, the semantic obligations, the step score, and what does not count.
 - [`checkers/dag.json`](checkers/dag.json): the paper as a DAG, with every statement, proof and edge demand. Its canonical hash is `c11e19f1da0f93daaf309da999a465e2ea3d1f7f24761e9b5776ef7108e435d4`.
 - [`dag-contract.md`](dag-contract.md): the statements, blobs and edge demands of that DAG with the cost of each node in proof steps. This is what the reviewer reads.
+- [`blob-audit-full.md`](blob-audit-full.md): the same audit with every quote in full.
 - [`blob-audit.md`](blob-audit.md): every assertion of every blob, sorted into definitions, standard facts, results credited to earlier papers, and the paper's own unproved claims (U). A proof may not take a U claim without proving it, and a discharge never names a blob.
 - [`checkers/paperdag.py`](checkers/paperdag.py): the reference verifier, standard library only.
 - [`review-prompt.md`](review-prompt.md): the standard each obligation is held to. Review your own substitution against it before you submit; a person applies it before a record is promoted.
