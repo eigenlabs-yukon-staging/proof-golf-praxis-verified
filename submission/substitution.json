@@ -1,9 +1,63 @@
 {
   "format": "paper-dag-substitution/1",
   "base": "c11e19f1da0f93daaf309da999a465e2ea3d1f7f24761e9b5776ef7108e435d4",
-  "title": "Baseline: the paper as published, nothing removed, nothing added",
-  "remove": [],
-  "add": [],
-  "edges": [],
-  "discharge": []
+  "title": "Prune unused results and share the fiber-counting bound",
+  "remove": [
+    "lem:we-hiding",
+    "lem:rank-one",
+    "prop:hs-dimension",
+    "ext:hs",
+    "lem:gp-rank",
+    "ext:odl"
+  ],
+  "add": [
+    {
+      "id": "new:fiber-count",
+      "kind": "lemma",
+      "label": "Fiber counting",
+      "name": "Fiber counting by free coordinates",
+      "statement": "For any rank-$d$ lattice $\\Theta\\subseteq\\mathbb Z^I$ with basis matrix $B$ and the uniform box sampler on $\\{2,\\ldots,g+1\\}^I$, its largest fiber density is at most $g^{-d}$. For every stack $\\mathbf W$ with either sampler, $\\operatorname{gp}(\\mathbf W)\\le g^{-\\operatorname{rank}\\mathbf W}$, and $\\operatorname{gp}(v^\\top)\\ge\\operatorname{gp}(\\mathbf W)$ for each vector $v$ in its row space. In the lattice case let $A=B^\\top$. In the stack case let $A$ be the vertical concatenation of the $W_c$, omitting column $0$ if it is zero. In each case the retained tuple consists of the sampled coordinates indexed by the columns of $A$.",
+      "proof": "The fiber equations for $A$ are those of the original map, since deleting a zero column removes a zero term.\nThe retained tuple is uniform on $g^m$ distinct tuples, where $m$ counts its coordinates, by the independent uniform draws and the conditional uniform draw at index $0$ if retained, with $g<q$ ensuring distinct residues.\nChoose $\\operatorname{rank} A$ independent columns, including column $0$ whenever retained in the stack case.\nOn any fiber of $A$ the chosen coordinates are determined by the other coordinates by linear independence of the chosen columns.\nThe other coordinates have at most $g^{m-\\operatorname{rank} A}$ tuples because each ranges over $\\{2,\\ldots,g+1\\}$.\nDividing by $g^m$ bounds the mass of each fiber by $g^{-\\operatorname{rank} A}$.\nFor a vector $v$ in the stack row space, $v^\\top r$ is a linear image of the stack output.\nThe image of a most probable stack output has probability at least that output's probability.",
+      "explain": "The lattice and stack bounds both count the free coordinates of a fiber."
+    }
+  ],
+  "edges": [
+    {
+      "from": "blob:stacks-gp",
+      "to": "new:fiber-count",
+      "kind": "background"
+    },
+    {
+      "from": "blob:sampler-search",
+      "to": "new:fiber-count",
+      "kind": "background"
+    },
+    {
+      "from": "blob:lattices",
+      "to": "new:fiber-count",
+      "kind": "background"
+    }
+  ],
+  "discharge": [
+    {
+      "edge": [
+        "lem:gp-rank",
+        "lem:heavy"
+      ],
+      "by": [
+        "new:fiber-count"
+      ],
+      "argument": "At rank at least four the bound is at most g^(-4) since g is at least one. The P3 hypothesis includes I5, which gives g^(-4) < μ_tr = θ − 100ε_tr < θ. The row-space inequality applies to the kernel vector as a row-space vector, and heaviness is the hypothesis gp(W) > θ."
+    },
+    {
+      "edge": [
+        "ext:odl",
+        "lem:inverse"
+      ],
+      "by": [
+        "new:fiber-count"
+      ],
+      "argument": "The lattice clause is the claimed rank-d fiber-density bound with the specified uniform box law."
+    }
+  ]
 }

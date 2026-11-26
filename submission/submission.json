@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "title": "Baseline: the paper as published, nothing removed, nothing added",
+  "title": "Prune unused results and share the fiber-counting bound",
   "claims": [
-    "substitution.json is a VALID substitution of the Praxis paper DAG in the sense of rules.md: structural checks S1 to S8 pass on exactly these bytes, and the verifier lists no semantic obligation for it."
+    "substitution.json is a VALID substitution of the Praxis paper DAG in the sense of rules.md: structural checks S1 to S8 pass on exactly these bytes, and each of the 3 semantic obligations the verifier lists for it (O-discharge, O-proof, O-cite) holds as stated, with the same constants, bounds and hypotheses."
   ],
   "experiments": [],
   "checks": [
@@ -10,7 +10,7 @@
       "check": "paperdag_gate",
       "inputs": {
         "substitution": [
-          "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"
+          "eNq1Vs2O2zYQvucpBoaAJqi9XWf/6kVSYNMiQE7NIUCA1tmAEimJWIlUSMpeZ+F7z32XAjn0GfIQfZJ+JCVZa2+CAm0vhkUOZ7755psh7x4RTXJtauYmlzRpWCPMjLNiZtvUOulaJ7X6bj6ZeruUWeGtsvlczBf5nLPjfHHCGctPjhecLRYLdnp+Jp4KdsLn+UX+9PTifC4W6dnFxbnIL+bH34vTkzN+Gr3BexXcvTatEtSq1gpORti2cpaY4mRLZgS5UlAuU+DKdKucVAWl+MOjFyNqvfJufsUXvitRX67FrJQchsGkWzRM3cy0Ev1aY3RzWdoZl7VQFln2G+LWYX18tGhm/vTYQPNqgq93AQPjfABwF36xKP3aRIn15Qh85wLbN1IFA/iv2W65Yqmo/PpLf4j6jHcGitXicJ/SDeVGCCxog8yZE3Z3xjp8I8tQ4pfagNwNBT4SnlDFnJOZoGS5fFMKx5ZLX3vhxIflErIo05R+uX6V0Fq6kiABaQnLRt5S8iIJdfIVapX0MkJpbsmyuqmATivv9O7pdLmsuHZ2Wnw7Xy63cDYliRpXzBTCulhd4r4MbkPwzxzVGhtJcX0349vkiDxqsRJmQ0gmu/F+A7ac3nbIBH7gpYs99RYaYmZOG8/ZXdFsH+8OPQEkQd79npmnZbuz2wKqT/Ehb6vr5dLpBq4K8fVgCeUeP8tKWokMRpSsEpIqsGD0mmzDMnFEr1Tgsq9Ihn6jSoCHq+cvYrBkMIo8jEwSSmOzgCYcZxXEoDJUHmqAvEnnYTd5+z5DUrqWLign01Vbo1DHAJQDkOf/ozA6BAqQQwx/1EAdUqFJXQuOvXuIARl0niP1fKxB5MjFLdagT28Sg4UTAHy0kyi6Uedenm/6bifxoQ3AbSDP5xengQaaLqI2skCgCoJspmSlAmlcgA6fGAtp9PnFOWH7VSdMfbRUbw6zQvq9lr1+i+s6IY404dxFEzulNaQGKrEVOtCGQo7ynvYJ+/wbgR/lBrfcsLUdGgcscunzRBpjC98Egb2+ND3OadR7Ujz7kBB6pjU+2wEiBqjkrbDI7sdSe7KShyROV8k9cF1l0Jgqq1q+pwzkq3z77ciS+ypEvJ9VmCyxfLHEMUVfM3VPF76UXPgqBG8dWzq08NgOGxUsmBmBzYb6D44D9q6eh05KthL3Zko9e5iSbdJVGK2UMdxHsQGwizlF2hPw0EBLEPknuQpXjkccRRMuKRtw1swGzQdvkZ5odvdFIHAZJvXewNhxPowNjLpuEpFJwvQcKKtZMXAVT+nWNa3rmBr2WaQGTZiytLpvC/ZstyMrP59BZCUYzF2Jv9Hom3smo74Wt00FwfSd3U+2cLuHIB1LKaoWeyne93t3WQQZmDuaBN/b4fYVHMU5vH9zo2sfNq10ehli2VnR7JA5/Y/u5xQHCxPeGzHu9Gth4uUzs2A/K//fWB2V9t9HGZjEDMlKfycfsulJHla/8DAalkvBVptJt/ZuAJBu7nvYR3pwAFDa/tly5cKLZae+XLcmaCUoaPxqKK4fz06fdNdB0e3EQ3j/HZEX4usTKjeNHxX+PRNnHmT26szPdokuLaS/LTpXz+jzn++doef0+RP99dvvND8+/vyHX8HOp+gR/TgL/Qhv/uqKvdI0lYQfpwPUG2GUqPqWZr5Vd8fianxueAbhBlNDxgkyAls0j98+oR984Idlclir/sW6VyepMNHwpP9vKzXu86wKU7RLAl94bPP49OTdo75/9sUyhqstjKtGZDKXsB6/LCu2Hvf/o+2jvwFRTxrK"
         ]
       }
     }
