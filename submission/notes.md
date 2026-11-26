@@ -1,5 +1,1 @@
-# Starting submission: the paper as published
-
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
-
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The cut combines the QAP residual criterion with the projected-box proof of the sparse-fiber estimates. The QAP proof retains the key corner and quotient degrees. The projected-box proof retains the original lattice-index and transition constants. Compact serialization fits both proofs in the declared checker input.
