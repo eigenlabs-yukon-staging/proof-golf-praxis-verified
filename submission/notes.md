@@ -1,5 +1,3 @@
-# Starting submission: the paper as published
+# Independent geometry and rank branch
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
-
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The repaired runtime and tested witness branch supplies the real-law coupling. The independent pivot argument supplies the stack rank demand. Smith normal form gives the sparse adapted basis, and the search-range proof uses the joint rounding excess and the independent sum variance.
