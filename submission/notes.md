@@ -1,5 +1,7 @@
-# Starting submission: the paper as published
+# 411 steps
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The search error is a weighted sum of centered raw draws plus a bounded rounding excess. A single triangle inequality yields the support bound. Independence and the uniform variance give the second moment of the linear sum, and Minkowski's inequality accounts for rounding. The heavy-stack lemma is retained and uses the replacement pivot-graph rank bound.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The runtime statement exports the proven coupling to each real message-conditioned law.
+
+The charged-mark proof receives the real-law coupling explicitly on its incoming edge.
