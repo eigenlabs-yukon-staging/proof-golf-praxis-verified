@@ -1,5 +1,3 @@
-# Starting submission: the paper as published
+# 468 steps: take "vanishing on all valid coins means zero" from the Schwartz–Zippel citation
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
-
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+Base: the 474-step substitution of `dad113ab` with the two accepted step cuts of `7347dc8a` (472 steps together). One further cut, in `new:view-coefficients` only: the four steps that proved $d_f<q-D$ are deleted, and the one step that used it now takes the same conclusion from the node's incoming demand on `ext:sz`. Nothing else changes.
