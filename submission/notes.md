@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Dual witness interpolation and conditional fibers
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The witness proof interpolates a symmetric tensor on the dual row space. Its Boolean evaluation tensors and Frobenius identities give a witness passing every test. The conditional fiber proof conditions on all nonbasis coordinates and bounds the unique possible pivot tuple.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The remaining substitutions supply the coefficient-view and residual-QAP identities, the projected-box lattice bound, and the received-pair and module-packing facts.
