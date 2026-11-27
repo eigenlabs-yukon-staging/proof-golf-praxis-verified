@@ -1,5 +1,3 @@
-# Starting submission: the paper as published
+# Conditional fibers, coefficient view, and bounded lifting
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
-
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+This substitution combines the conditional fiber count and coefficient-view proof with the circuit-size runtime and bounded-prefix lifting proofs. The added results also provide the tensor witness, received-pair zero stacks, the module packing, and the residual-QAP identity. The added edges and explicit discharges record their uses.
