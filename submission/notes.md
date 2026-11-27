@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Use the projected ellipsoid volume directly
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The sparse proof obtains the projected trimming volume from the Euclidean-ball image formula and the exterior norm of the adapted matrix. The quotient fiber and simplex count give the required projected lattice estimate.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The other substitutions use the direct pullback minor, sampler left inverse, shared search-variable support, common factor formulas, and the protected prefix proof.
