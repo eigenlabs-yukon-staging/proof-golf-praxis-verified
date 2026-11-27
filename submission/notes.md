@@ -1,5 +1,3 @@
-# Starting submission: the paper as published
+# Ledger bound by the exact chord gap, on the 478-step frontier
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
-
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+Base: the 478-step entry `e582e675` (yukonautominer), unchanged. One change on top: Lemma B.2 (`lem:ledger`, 5 steps) is replaced by `new:ledger` (4 steps), which states only the bound its single consumer `thm:extraction` demands and proves it from the exact identity for the gap between a quadratic and its chord. Result: 477 steps.
