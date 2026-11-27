@@ -1,5 +1,1 @@
-# Starting submission: the paper as published
-
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
-
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The projected-box cut now uses a bit-independent stopped transcript to discharge the half factor. The uncapped transcript ends at the first target query before its answer, or includes the final output if it completes. This supplies the half-factor premise. The original capped first-mark probabilities remain proved separately.
