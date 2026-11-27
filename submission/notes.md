@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Invert the sampler on a column basis
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+For fixed nonbasis draws, the fiber proof gives a left inverse of the sampler on the basis inputs. It then uses column independence to identify at most one sampled basis tuple, applies the uniform input probability, and averages.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The other substitutions retain the shared search-variable support, common factor formulas, valid-coin probability demand, and sparse triangulation and norm bounds.
