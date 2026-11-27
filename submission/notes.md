@@ -1,5 +1,3 @@
-# Starting submission: the paper as published
+# Ledger chord gap and two notation steps moved to the statement, on the 477-step frontier
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
-
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+Base: the 477-step entry `e68454e8` (yukonautominer), otherwise unchanged. Two independent cuts are stacked on it: `lem:ledger` (5 steps) is replaced by `new:ledger` (4 steps, the exact chord gap of a quadratic), and in `new:view-coefficients` the two proof lines that only introduce notation (the coordinates x = y - B(tau) with the leaf exponents, and the coefficient differences beta) are stated with the node's other notation in its statement, so the proof has 49 steps instead of 51. Result: 474 steps.
