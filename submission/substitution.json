@@ -1,9 +1,469 @@
 {
-  "format": "paper-dag-substitution/1",
+  "add": [
+    {
+      "id": "new:view-coefficients",
+      "kind": "lemma",
+      "statement": "Fix the admissible extraction parameters and matrix $M$. Let $\\mathsf D$ be a target expression, $\\chi\\in\\mathbb F_q$ and $r,r'\\in\\mathbb F_q^{N+1}$. Use its matrices $W_c^{\\mathsf s}$ and vectors $u_c^{\\mathsf s}$.\n(a) If $\\mathsf D$ is $\\chi\\kappa$ identically at $r$, each sector stack passes and satisfies the ties, $W_c^{\\mathsf s}r=u_c^{\\mathsf s}$ for all cells, and the plain key-cell corner is $\\chi$.\n(b) Zero stacks in (a) imply a formal identity.\n(c) Without that identity at fixed $r$, the coincidence probability over uniform valid coins is at most $d_f/(q-D)\\le\\varepsilon_f$.\nThe difference $G_T-\\mathsf K^\\alpha$ of the two received target-group expressions has zero stacks in both sectors.\n(e) A formally distinct pair in the same source group has coincidence probability at most $\\varepsilon_f$ over uniform valid coins at every fixed $r$.\nFor an identity in (a), each coefficient with right index $H^{\\mathrm{leg}}_{j,1}$ in either sector vanishes unless its left index is $F^{k_1}_{i,1}$, in which case it equals the same sector coefficient on $F^{k_1}_{i,2},H^{\\mathrm{leg}}_{j,2}$. The kind $\\mathrm X$ and exponent in $s_{\\mathrm X}\\upsilon^{k_c}y_i$ identify cell $c$ and row $i$. Formally equal target-group expressions have equal stacks.\nUse $d_f=3D+2n+2K_1+6$ and $\\varpi=\\Omega_{22}\\zeta\\zeta^{\\prime}\\zeta^{\\prime\\prime}\\varepsilon$. Factor symbols ending in 1 or 2 are published left or right coordinates, and $W_c,u_c$ omit the current sector index. Use coordinates $x=y-B(\\tau)$ and write $\\widehat a$ for the exponent of a first-group leaf $a$ at $x=0$, $\\Omega_{22}=0$. Write $\\beta_{a,j,\\mathrm{leg},\\mathsf s}$ for the coefficient with $H_{j,1}$ minus the $F_{i,2},H_{j,2}$ coefficient in the same cell and sector when $a=F_{i,1}$. For $v=\\mathrm{quo},\\mathrm{rem}$, let $(\\Delta_v,Z_{c,v})$ be $(\\Delta,Z_c)$ and $(\\Delta^{\\prime},Z_0)$ respectively. In the selected sector $\\mathsf s$ set $H_{c,v}(X)=\\sum_{k,j}\\mathsf D_{\\mathsf P_k^v,(\\mathsf B_{c,j}^v)^{\\mathsf s}}X^{k+j\\Delta_v}$ over the published pairs, and write $(h_c,R_c)=(H_{c,\\mathrm{quo}},H_{c,\\mathrm{rem}})$. Let $(M_{\\mathrm X},N_{\\mathrm X})$ be $(\\eta_1z_\\circ+\\eta_2z_+,\\eta_2z_-+\\eta_3z_\\circ)$ for $\\mathrm X\\in\\{\\mathrm E,\\mathrm O\\}$ and $(\\eta_3z_+-\\eta_1z_-,0)$ for $\\mathrm X=\\mathrm V$.",
+      "proof": "For fixed $r$, multiplying $\\operatorname{val}(\\mathsf D)-\\chi\\kappa$ by $\\varpi$ gives a polynomial of degree at most $d_f$ by the degree demand.\nThe factor $\\varpi$ is nonzero on their support because its five factors are sampled nonzero.\nFor a nonzero cleared polynomial, the incoming demand bounds its probability of vanishing over uniform valid coins by $d_f/(q-D)\\le\\varepsilon_f$.\nBy the Schwartz–Zippel demand a polynomial of degree at most $d_f$ that vanishes on all valid coins is zero, so identity on the valid grid is equivalent to the cleared polynomial being zero.\nFor an identity divide by $\\varpi$ in the Laurent ring in its factors, where $y$ and $\\tau$ are still polynomial variables.\nThe $x_j\\Omega_{22}^{-1}$ coefficient in positive $\\Omega_{12}$ powers is $\\Omega_{12}\\sum_{a,\\mathrm{leg},\\mathsf s}\\beta_{a,j,\\mathrm{leg},\\mathsf s}\\widehat a\\alpha_{\\mathsf s}s_{\\mathrm{leg}}$ by the hidden-basis formulas.\nThe right side of the identity is independent of the hidden basis, so that sum is zero.\nThe values of $\\widehat a$ are $1,\\zeta\\tau^k,\\zeta'\\tau^k,\\zeta''B_i(\\tau),\\pi_{k_1}B_i(\\tau),\\Omega_{12}\\pi_{k_1}B_i(\\tau)$ by their exponent formulas.\nThe polynomials $B_i$ are independent because their evaluations at the $d_j$ give the identity matrix.\nThe kind and exponent recover $k_2,k_1$ by quotient and remainder of half the exponent rounded down modulo $K_1$, with $k_1=0$ for a leg.\nAt $\\varepsilon^0$ the product $\\pi_{k_1}s_{\\mathrm{leg}}$ is $\\pi s_{\\mathrm X}\\upsilon^{k_c}$ by the scalar formulas.\nTaking that coefficient in the sum leaves distinct monomials in the sector, scalars, and $\\upsilon$, except for the indexed families $B_i$ or distinct powers of $\\tau$.\nHence independence of these families in their respective monomials gives $\\beta_{a,j,\\mathrm{leg},\\mathsf s}=0$ for all indices.\nIn the original $y$ coordinates take the component of $\\pi$-degree one, zero degrees in $\\zeta,\\zeta',\\zeta''$, and total hidden-basis degree zero, separately for each power of $\\alpha$.\nThe paired coefficient in the selected sector equals $\\chi_{\\mathsf s}\\kappa$ after moving the key leaf to the right, with $\\chi_{\\mathrm{plain}}=\\chi$ and $\\chi_\\alpha=-\\mathsf D_K$.\nFrom the leaf formulas these pairs are matched $F,H$ terms, $F_{i,1}$ with search bases or $G_2$, quotient and remainder powers with corresponding bases, and $Y_i$ with cancellation bases.\nMatched pairs give $F_i^{k_1}H_j^{\\mathrm{leg}}$ because $\\Omega\\Omega^{-1}=1$.\nMultiplication of these two coordinates gives $F_i^{k_1}H_j^{\\mathrm{leg}}=\\gamma_c(y_i r_j+y_iA_j-A_i y_j+A_iB_j)+\\pi_{k_1}y_i\\vartheta_{\\mathrm{leg},j}$, with $A_i,B_i$ evaluated at $\\tau$.\nThe pairing contribution of kind $v$ to cell $c$ is $\\gamma_c Z_{c,v}(\\tau)H_{c,v}(\\tau)$ by cancellation of the reciprocal scalar in its two leaf formulas.\nThe ranges of $k,j$ and $\\nu\\mid\\Delta'$ give only allowed exponents $k+j\\Delta'<J'\\Delta'=\\nu n_{\\mathsf c}$ in $R_c$.\nCollecting the terms containing $s_{\\mathrm X}$ gives $\\sum_c\\gamma_c b_c$ with $b_c=y^\\top(W_c r-u_c)+y^\\top(W_c-W_c^\\top)A(\\tau)+(P_{W_c}+h_c Z_c+Z_0R_c)(\\tau)$.\nThe other terms contain no $s_{\\mathrm X}$ because tie masks, cancellation bases and the generator lack these factors.\nThe coefficient of $\\pi s_{\\mathrm X}\\upsilon^{k_c}\\varepsilon^0$ gives $b_c=\\chi_{\\mathsf s}L_\\rho$ at the key cell and zero at every other cell.\nThe matrix with columns $(1,A(\\tau))$ at $d_0,\\rho,d_1,\\ldots,d_N$ is invertible by subtracting the $d_0$ column and using the QAP table.\nMultiplying the evaluated $y$-coefficient equations by its inverse gives $[W_c r-u_c\\mid W_c-W_c^\\top]=0$.\nEvaluating the constant-in-$y$ key identity at $\\tau=\\rho$ gives $(W_{c_{\\mathrm{key}}})_{00}=\\chi_{\\mathsf s}$ by the QAP table and the vanishing of $Z_c,Z_0$ there.\nThe QAP criterion makes every $W_c$ pass by its constant-in-$y$ identity with quotient $-h_c$ and allowed remainder $-R_c$.\nThe $\\varepsilon^0$ coefficient of $\\pi_{k_1}\\vartheta_{\\mathrm{leg}}$ is $\\pi[\\upsilon^{k_c}M_{\\mathrm X}-(-\\omega\\upsilon)^{k_c}N_{\\mathrm X}]$ by multiplying the mask factors.\nSumming these contributions against $y^\\top W_c$ gives $\\pi\\sum_a\\eta_a y^\\top t_a(\\upsilon)$ by the defining three tie polynomials.\nThe other terms of $\\eta_a\\varepsilon^0$ are from the tie bases and have factor $P(\\upsilon)$.\nExtracting the $\\pi\\eta_a\\varepsilon^0 y_i$ coefficient with zero $s_{\\mathrm X}$ degrees from the class identity gives $(t_a)_i=0\\pmod P$ for every $a,i$.\nFor zero stacks changing $r$ to any $r^{\\prime}$ changes no value because every supported coefficient of an $r$-dependent leaf is a stack entry.\nFor a formal identity the equations $W_c r'=u_c$ for arbitrary $r'$ force $W_c=0$.\nApplying this result to the difference of formally equal expressions shows their stacks agree.\nThe received target difference and any source-group difference paired with the opposite generator have zero stacks because the stack projection kills generator-containing pairs and the key term.\nA formally distinct source pair makes its generator-paired difference nonformal by nondegeneracy.\nBy the zero-stack result, this nonformal difference is nonidentical at every fixed $r$.\nThe target coincidence bound at each such $r$ bounds the original comparison by $\\varepsilon_f$.\n"
+    },
+    {
+      "id": "new:kernel-packing",
+      "kind": "lemma",
+      "statement": "Let $v\\in\\mathbb F_q^{N+1}$ be a nonzero kernel vector with $v_0=0$ and $x\\in\\mathbb Z^{N+1}$ a short multiple, so $x\\equiv c v\\pmod q$ for a nonzero $c\\in\\mathbb F_q$ and $\\|x\\|_\\infty\\le\\beta$. Let $A$ be columns $1,\\ldots,\\ell$ of $M$. Form $\\hat x\\in R^\\ell$ by the coefficient packing of the forms with integer entries. Then $A\\hat x=0\\pmod q$ and $0<\\|\\hat x\\|_\\infty\\le\\beta$.",
+      "proof": "With $v_0=0$, the defining coefficient blocks of $z(v)=0$ are those of $A\\hat v$, where $\\hat v$ is the packing over $R_q$.\nBy linearity of $x\\mapsto A\\hat x\\bmod q$, $A\\hat x\\equiv c A\\hat v=0\\pmod q$.\nThe coefficients of $\\hat x$ are positive-index entries of $x$ or padding zeros, so the sup norm is at most $\\beta$.\nAt least one of these coefficients is nonzero modulo $q$ because $cv\\ne0$ has zeroth coordinate zero."
+    },
+    {
+      "id": "new:tensor-witness",
+      "kind": "lemma",
+      "statement": "Every nonzero usable stack of rank at most three whose row space contains no kernel vector has a witness of $S$ in its row space. For the proof, $V$ is the base-field row space of the stack and $d=\\dim V$. Write $K=\\mathbb F_{q^n}$, $V_K=K\\otimes_{\\mathbb F_q} V$, $V_K^*=\\operatorname{Hom}_K(V_K,K)$, and use $a=n/2-1$, $b=n/2$, $c=n/2+1$. Put $(Z_a,Z_b,Z_c)=(W_U,W_V,\\sigma^c(W_U))$, $h_s=\\sigma^s(z)|_V$ extended to $V_K$, and $\\ell_i$ the restriction of coordinate $i$ to $V$. On forms and tensors Frobenius acts on coefficients in a base-field basis. A tensor $w^{\\otimes j}$ on the dual denotes the product of the $j$ evaluations at $w$. For $F$ in the $K$-span of $X^{q^j}$ with $0\\le j<d$, let $E(F)$ be the $K$-linear form on $V_K$ given on $V$ by $v\\mapsto F(h_a(v))$.",
+      "proof": "By their formulas the $Z_s$ are linear combinations of stack matrices over $K$.\nSo the $Z_s$ are symmetric.\nTheir rows lie in $V_K$ by linearity.\nTheir columns lie in $V_K$ by symmetry.\nThe supported matrices give symmetric bilinear forms on $V_K^*$ by tensor evaluation.\nReducing the three tie polynomials modulo $P$ via $\\sigma^j(z)=z[\\omega^jT]$ gives $Z_s(h_t,-)=Z_t(h_s,-)$ for the three pairs from $a,b,c$.\nThe image $h_a(V)$ has $q^d$ elements by injectivity of $\\sigma^a\\circ z$ on $V$.\nThe evaluation map $E$ is injective by the root bound, since its polynomials have degree at most $q^{d-1}$ and its evaluation set has $q^d$ points.\nThe images $E(X^{q^j})=h_{a+j}$ of the $d$ monomials form a basis of $V_K^*$ by this injectivity and equality of dimensions.\nFor any relation $\\sum_s\\lambda_s h_s=0$ among the three inputs, the ties give $(\\sum_s\\lambda_s Z_s)(h_t,-)=Z_t(\\sum_s\\lambda_s h_s,-)=0$ for each $t$.\nThe $h_t$ span the dual, so $\\sum_s\\lambda_s Z_s=0$.\nThus the assignment $h_s\\mapsto Z_s$ extends linearly and defines a trilinear form $L$ with $L(h_s,-,-)=Z_s$ for all three inputs.\nThe tie equations on pairs of spanning inputs make $L$ symmetric in its first two slots.\nSymmetry of the $Z_s$ makes $L$ symmetric in its last two slots.\nThese two transpositions generate all permutations, so $L$ is fully symmetric.\nAt least one of $L(h_a,-,-),L(h_b,-,-)$ is nonzero by coefficient extraction from the nonzero stack.\nEvery base-field test $\\varrho$ annihilates $Z_s$ by linearity over $K$, since each $W_c$ passes.\nContracting $\\varrho$ into the last pair of $L$ is therefore zero by spanning of the first inputs.\nFor Booleanity this reads $L(-,\\ell_i,\\ell_i-\\ell_0)=0$ for $i>0$.\nThe Frobenius definition gives $Z_a=\\sigma^a(Z_c)$ since $a+c=n$.\nThe even exponents of $W_V$ give $Z_b=\\sigma^b(Z_b)$ since $\\sigma^b(T)=-T$.\nIf $\\ell_0=0$, choose a dual basis from the remaining coordinate forms.\nThe Booleanity identities then make every coordinate of $L$ with a repeated index zero by symmetry.\nSince $L\\ne0$, a triple of distinct basis inputs must exist, using all three basis inputs when $d\\le3$.\nAs $L$ is supported on permutations of that triple with value $t$ there, its contraction $Z_s$ at $h_s$ has complementary off-diagonal entries $t(h_s)_k$ by trilinearity, where $(h_s)_k$ are coordinates in this basis.\nComparing these entries in the two Frobenius identities gives $t h_s=\\sigma^s(t)h_0$ for $s=a,b$, since $\\sigma^a(h_c)=\\sigma^b(h_b)=h_0$.\nWedging the two identities gives $0\\ne t^2 h_a\\wedge h_b=\\sigma^a(t)\\sigma^b(t) h_0\\wedge h_0=0$, excluding $\\ell_0=0$.\nThe restricted coordinate forms span the dual, so extend $\\ell_0$ to a dual basis with $\\ell_{i_1},\\ldots,\\ell_{i_{d-1}}$.\nFor each $\\delta\\in\\{0,1\\}^{d-1}$ take the unique $w_\\delta\\in V$ with basis values $(1,\\delta)$.\nThe Booleanity identities give $L(-,\\ell_{i_j},\\ell_{i_j})=L(-,\\ell_{i_j},\\ell_0)$.\nBy symmetry and these reductions each basis-triple coordinate depends only on its set of positive basis indices.\nAn evaluation tensor $w_\\delta^{\\otimes j}$ has coordinate value one exactly when the set of positive basis indices in that coordinate is contained in the support of $\\delta$, and zero otherwise.\nBoolean-lattice Möbius inversion in those coordinates gives $L=\\sum_\\delta c_\\delta w_\\delta^{\\otimes3}$.\nThe same inversion proves independence of the pair tensors since pair coordinates realize every subset when $d-1\\le2$.\nSet $z_\\delta=h_0(w_\\delta)$, which is nonzero by injectivity of $z$ on $V$ and $\\ell_0(w_\\delta)=1$.\nThe contractions of the tensor expansion give $Z_s=\\sum_\\delta c_\\delta\\sigma^s(z_\\delta) w_\\delta^{\\otimes2}$.\nComparing pair-tensor coefficients in the Frobenius identities gives $c_\\delta\\sigma^s(z_\\delta)=\\sigma^s(c_\\delta) z_\\delta$ for $s=a,b$.\nThus $x_\\delta=c_\\delta/z_\\delta$ is fixed by $\\sigma^a$ and $\\sigma^b$.\nThe common fixed field of $\\sigma^a$ and $\\sigma^b$ is $\\mathbb F_q$ by the finite-field subfield theorem since $\\gcd(a,b)=1$.\nBy $c_\\delta=x_\\delta z_\\delta$, the base-field tensor $A_\\varrho=\\sum_\\delta x_\\delta\\varrho(w_\\delta^{\\otimes2})w_\\delta^{\\otimes2}$ contracts against $h_0$ to the vanishing test contraction of $L$.\nInjectivity of $z|_V$ forces $A_\\varrho=0$ because tensoring with $V$ over $\\mathbb F_q$ preserves injections.\nIndependence of the pair tensors gives $x_\\delta\\varrho(w_\\delta^{\\otimes2})=0$ for every $\\delta$.\nSome $x_\\delta$ is nonzero since $L$ is nonzero.\nFor that $\\delta$, all tests on the pair tensor vanish by division by $x_\\delta$.\nSince $(w_\\delta)_0=1$, the Booleanity equivalence for its moment matrix gives $(w_\\delta)_i\\in\\{0,1\\}$ for all $i>0$.\nThe constraint equivalence for the same moment matrix makes every constraint hold, so this Boolean vector is a witness in $V$.\n"
+    },
+    {
+      "id": "new:circuit-time",
+      "kind": "proposition",
+      "statement": "Under the extraction theorem's hypotheses, if the adversary runs in time $t$ with at most $Q$ generic group calls and $Q_H$ queries to each random oracle, both $\\mathcal B_0,\\mathcal B_1$ run within $t_R=t+O(Q+d_R Q_H+\\mu)+\\mathsf{poly}(D,\\log q)$ in the specified operations model including description and advice. Use $\\ell_{\\mathsf{lab}}$ for the label bit length and $Q_H$ for the per-oracle cap. With valid non-search coordinates fixed at a recovery point, only $H^{\\mathrm{leg}}_{j,1}$ and its alpha copy among the received exponents depend on $r$.",
+      "proof": "The identities $(k+1)d_R=n$ and $\\ell=\\lceil N/d_R\\rceil$ give $(k+1)(\\ell+1)d_R\\le D(D+2)$ using $N,n\\le D$.\nCounting the leaf indices gives $O((K_1+K_2+1)(N+1)+n(J+J'+1)+\\Delta+\\Delta')$ received leaves.\nThis is polynomial in $D$ by $K_1K_2=n/2$, $J\\Delta\\le2D$ and $J'\\max(1,\\Delta')\\le D$.\nThe fixed QAP coefficient lists occupy $O(ND+D)$ advice by their degrees.\nThe private, recovery and encryption coordinates are sampled in polynomial time by the independent finite-set draws in (R2) and encryption, apart from its centered search coordinate.\nThe excluded sets for the coin draws have polynomial-size descriptions by their explicit point and left-leg lists.\nThe centered sampler costs $O(N+1)$ draws and integer operations on values bounded by $B<q\\le2^{\\ell_{\\mathsf{lab}}}$ by its explicit formula.\nThe seeded challenge programming takes polynomial time by the bound on its ring coefficient count.\nEvaluating the form definition on coordinate vectors by ordinary ring convolution constructs the $n(N+1)$ coefficients in polynomial time by the ring-size bound.\nHorner evaluation of the listed polynomials and scalar-factor arithmetic then give polynomial-size leaf exponent circuits.\nThe masked message takes $O(\\mu)$ additional description and operations by packing it into label-sized blocks for writes and XORs.\nKeep the partial injection in both directions in tables and record strings known to be outside its image.\nConditional on the tables the unused injection is uniform into the undecided strings, by symmetry of a uniform injection.\nA new exponent gets a uniform undecided string by the allowed exclusion sample.\nFor an undecided string, sample a uniform unused exponent exactly when a uniform draw in $[0,U-1]$ is below $A$, where $A$ counts unused exponents and $U<2^{\\ell_{\\mathsf{lab}}}$ counts undecided strings after generator allocation.\nEach unused exponent is assigned to that string with probability $(A/U)/A=1/U$, its conditional probability under the uniform remaining injection.\nA name query uses the eligibility flag and opposite exponent lookup-or-assign rule in constant time, using a fresh undecided string when necessary.\nEach generic group call thus takes constant extra time by the tables and at most two operand exposures and one result.\nInitial label assignments cost polynomial time by applying the new-exponent rule to the leaves and the key.\nSample each fresh oracle reply componentwise using at most $d_R$ allowed draws, since a ring reply is a field tuple and a key reply is one uniform string.\nEach oracle query adds constant table work, so the total oracle overhead is $O(d_R Q_H)$.\nLog the initial installations and subsequent keep-first table events in order, including group, event kind, label, prior-record flag and old and new circuit pointers.\nEach call adds $O(1)$ log entries and arithmetic gates by the linear, pairing and sign-change rules.\nAfter the (R2) draws, evaluating the gates in creation order at the private point costs constant work per gate.\nScan in $O(L+Q)$ time for the first target record installation and the first $\\mathbb G_T$ result with a prior record and unequal private values.\nZeroing the other sector's right-group and key leaves projects precisely to the desired sector by the target expression formula, with generators assigned to the plain sector.\nAt a valid recovery point, substituting the non-search coordinates in the received leaf formulas leaves only $H^{\\mathrm{leg}}_{j,1}$ and its alpha copy dependent on $r$, each affine in $r_j$.\nEvaluating the $r$-free left circuits turns each pairing in the sector circuit into scalar multiplication of its right input.\nStarting with root weight one and all others zero, reverse linear substitution gives the gradient as the weights at the $r_j$ inputs, with one multiply-add per gate input edge.\nGaussian elimination finds a nonzero vector when one exists in the span of the three gradients intersected with the $n$ form kernels, in polynomial time by these dimensions and $N\\le D$.\nThe lifting demand gives polynomial further time per selected expression.\nPacking a successful output is polynomial time by its coefficient formula with $\\ell d_R\\le D+d_R$.\nAdding these costs for at most two selected expressions and six recovery passes per expression gives $t+O(Q+d_R Q_H+\\mu)+\\mathsf{poly}(D,\\log q)$ including the original description and advice.\n"
+    },
+    {
+      "id": "new:fiber-count",
+      "kind": "lemma",
+      "statement": "For any rank-$d$ lattice $\\Theta\\subseteq\\mathbb Z^I$ with basis matrix $B$ and the uniform box sampler on $\\{2,\\ldots,g+1\\}^I$, its largest fiber density is at most $g^{-d}$. For every stack $\\mathbf W$ with either sampler, $\\operatorname{gp}(\\mathbf W)\\le g^{-\\operatorname{rank}\\mathbf W}$, and $\\operatorname{gp}(v^\\top)\\ge\\operatorname{gp}(\\mathbf W)$ for each vector $v$ in its row space. In the lattice case let $A=B^\\top$. In the stack case let $A$ be the vertical concatenation of the $W_c$, omitting column $0$ if it is zero. In each case the retained tuple consists of the sampled coordinates indexed by the columns of $A$, with original indices.",
+      "proof": "In the centered sampler the formula for $r_0$ translates $r_\\star$, so given all positive-index draws it is uniform on $g$ consecutive integers.\nReduction modulo $q$ is injective on each such interval since $g<q$.\nExtend the nonzero column $0$ to a column basis when retained in the stack case, and otherwise choose any column basis of $A$.\nGiven the coordinates outside that basis, a fiber requires a unique tuple of basis coordinates if it is attainable, by column independence.\nThe chain rule bounds the required tuple probability by $g^{-\\operatorname{rank}A}$, with atom $1/g$ per independent box coordinate and conditional atom at most $1/g$ for the centered coordinate when present.\nAveraging the conditional bound gives the asserted fiber-density bound.\nThe linear image $v^\\top r$ of the stack output has maximum atom at least as large, since its atom over a maximizing stack output contains that event.\n"
+    },
+    {
+      "id": "new:rounded-range",
+      "kind": "lemma",
+      "statement": "For every Boolean $w$ with $w_0=1$, in either of the two prescribed samplers with its specified center $c_w$, $|r(w)-c_w|\\le B$ throughout the support and $\\mathbb E(r(w)-c_w)^2\\le(g\\sqrt{H/12}+\\delta)^2$. For the independent sampler set $(H,\\delta)=(1+\\operatorname{wt}(w),1/2)$, and for $\\mathcal D_g$ use $(H,\\delta)=(1+N/4,3/2)$. In the proof $M$ is the argument of the floor in the definition of the corresponding center. Let $X$ be the sum of the independent inputs centered by $(g+3)/2$, with weights $(w_0,\\ldots,w_N)$ in the independent sampler and $(1,w_1-1/2,\\ldots,w_N-1/2)$ in input order $(r_\\star,r_1,\\ldots,r_N)$ in the centered sampler. In the centered case put $u=\\lceil N(g+1)/2\\rceil+r_\\star+\\sum_{i=1}^N w_i r_i$ and $s=\\sum_{i=1}^N r_i$.",
+      "proof": "Substituting the two samplers gives $r(w)=\\lceil X+M\\rceil$, where in the centered case this uses $u-\\lfloor s/2\\rfloor=\\lceil u-s/2\\rceil$ for integer $u,s$.\nThe ceiling excess is zero for the independent sampler and at most $1/2$ for the centered sampler by integrality and half-integrality of the unrounded values.\nThe floor deficit $M-c_w$ is at most $1/2$ for half-integral $M$ in the independent case and less than $1$ in the centered case.\nThe triangle inequality gives $|r(w)-c_w|\\le (N+1)(g-1)/2+3/2\\le (N+1)(g+1)=B$ using $|w_i|,|w_i-1/2|\\le1$ and the total rounding bound.\nIndependence gives $\\mathbb E X^2\\le g^2 H/12$ by the uniform variance $(g^2-1)/12$ and the squared weights.\nMinkowski's inequality bounds the root-mean-square search error by $g\\sqrt{H/12}+\\delta$ with the corresponding rounding bounds.\n"
+    },
+    {
+      "id": "new:sparse-box",
+      "kind": "lemma",
+      "label": "Sparse trimmed fibers",
+      "name": "Triangular projection and box bound for trimmed fibers",
+      "statement": "Let $\\Theta \\subseteq \\mathbb{Z}^I$, with $|I| \\le N$, be a lattice of rank $d \\in [3]$ with a basis matrix $B$, $F$ a nonempty set of box points on $I \\cup \\{i'\\}$, $i' \\notin I$, trimmed by $\\Theta$, and $\\Phi(r) := (B^\\top r_I, r_{i'})$.\n\n \n(a) If $\\dim \\Phi(F) = d + 1$ and $\\Phi(F)$ is in a coset of a subgroup of index $q$ of $\\mathbb{Z}^{d+1}$, then $\\Pr[F] \\le \\Lambda_d\\, g^d\\, h(\\Theta)\\, m(\\Theta)/q$.\n(b) If $F^\\perp$ has a rank $d'$ with $1 \\le d' < d$ and a largest minor at a set $J \\subseteq I$, and the restriction to $I$ of each vector of $F^\\perp$ lies in $\\operatorname{span}_{\\mathbb{R}}(\\Theta)$, then $\\Pr[F]\\, h(F^\\perp) \\le \\Lambda_{d-d'}\\, g^{d-d'}\\, h(\\Theta)\\, m(\\Theta)$. In the proof, $y=(y_1,y_2)=B^\\top r_I$ is split according to $B=(B_1,B_2)$, and $\\mathbb B^I$ denotes the Euclidean unit ball on the coordinates $I$. Use $k=d+1-d^{\\prime}$. In (a) take $d^{\\prime}=0$, $J=\\varnothing$, $a=1$, $\\delta=q$, $p=\\mathrm{id}$. In (b), after adapting $B$, let $V$ denote a basis matrix of the integer normal lattice of $\\Phi(F)$ and split its rows into blocks $V_1,V_2,V_3$ of sizes $d^{\\prime},k-1,1$.",
+      "proof": "For a fixed image pair $(y,x)$ with $x=r_{i'}$ its box density is at most $m(\\Theta)/g$, by fixing the new coordinate and counting a fiber of the other coordinates.\nThus $\\Pr[F]\\le m(\\Theta)|\\Phi(F)|/g$.\nIn (b), the matrix $B_J$ has rank $d'$ since its column span contains the invertible largest-minor block $Y_J$ of a basis $Y$ of $F^\\perp$.\nExtend a basis of the saturated integer kernel of $B_J$ to a basis of the coefficient lattice $\\mathbb Z^d$ by the basis-extension demand.\nIn the corresponding basis $B=(B_1,B_2)$ the $k-1$ columns of $B_2$ vanish on $J$, with $k=d+1-d'$.\nThe unimodular change of basis $U$ bijects the fiber values via $y\\mapsto U^\\top y$.\nIt preserves all absolute full minors because the basis change has determinant of absolute value one.\nWith $z=B^\\top r_I-y_\\Theta$, substituting $BU$ into the trimming quadratic gives $(U^\\top z)^\\top(U^\\top\\Sigma_\\Theta U)^{-1}(U^\\top z)=z^\\top\\Sigma_\\Theta^{-1}z$.\nThe map $(u,t)\\mapsto(Bu,t)$ sends the real normal space of $\\Phi(F)$ isomorphically onto that of $F$ by the assumed restriction on $F^\\perp$.\nThe pullback of the columns of $V$ is $YC$ with $C$ a nonsingular integer matrix, because they are independent integer normals of $F$.\nRestricting this matrix equation to $J$ gives $(B_1)_J V_1=Y_J C$.\nTaking absolute determinants yields $a\\delta\\ge h(F^\\perp)>0$ for $a=|\\det(B_1)_J|$ and $\\delta=|\\det V_1|$.\nSolving the affine normal equations with $V_1^\\top$ gives the projection $p$ to the last $k$ coordinates as an affine isomorphism from $\\operatorname{aff}\\Phi(F)$ onto $\\mathbb R^k$.\nThe projected integer kernel of $V^\\top$ is the kernel of $(y_2,x)\\mapsto V_2^\\top y_2+V_3^\\top x$ modulo $V_1^\\top\\mathbb Z^{d'}$.\nThat map is surjective by the transpose-surjectivity demand for the saturated normal lattice of $\\Phi(F)$.\nThus the projection lies in a coset of a subgroup of index $\\delta$.\nTriangulate the hull of $p(\\Phi(F))$ with every point as a vertex, using stellar subdivision to insert points.\nFor each full simplex $T$, the lattice determinant formula gives $(k+1)\\delta\\le (k+1)!\\operatorname{vol}(T)$.\nSumming over full simplices counts every point at least once, hence $|\\Phi(F)|\\le (k+1)!V_*/\\delta$ for hull volume $V_*$.\nThe projected trimming region is contained in the product of the last-coordinate interval and a translate of $(R_{\\mathrm{tr}}g/\\sqrt{12})B_2^\\top\\mathbb B^I$ by the covariance formula, where $B_2=B$ in (a).\nIn singular-vector coordinates that region lies in a box of side lengths $2R_{\\mathrm{tr}}g\\sigma_j/\\sqrt{12}$ and $g$, where $\\sigma_j$ are the $k-1$ singular values of $B_2$.\nExpansion along $J$ gives the potentially nonzero coordinates of $a$ times the wedge of the columns of $B_2$ as the signed full minors at row sets containing $J$.\nThe norm of this wedge vector is at most $h(\\Theta)N^{(k-1)/2}$ by the bound on each coordinate and at most $N^{k-1}$ coordinate indices.\nIn singular-vector coordinates that same norm is $a\\prod_j\\sigma_j$.\nThe box volume bounds $a\\delta\\Pr[F]$ by $g^{k-1}h(\\Theta)m(\\Theta)$ times $(k+1)!(R_{\\mathrm{tr}}\\sqrt N/\\sqrt3)^{k-1}$.\nThis factor is at most $\\Lambda_{k-1}$ by (I3) in each of $k-1=1,2,3$.\nSubstitute $a=1,\\delta=q$ in (a) and $a\\delta\\ge h(F^\\perp)$ in (b) to obtain the bounds.\n",
+      "explain": "Use a projected box instead of the exact projected ellipsoid volume."
+    }
+  ],
   "base": "c11e19f1da0f93daaf309da999a465e2ea3d1f7f24761e9b5776ef7108e435d4",
-  "title": "Baseline: the paper as published, nothing removed, nothing added",
-  "remove": [],
-  "add": [],
-  "edges": [],
-  "discharge": []
+  "remove": [
+    "lem:we-hiding",
+    "lem:rank-one",
+    "prop:hs-dimension",
+    "ext:hs",
+    "lem:gp-rank",
+    "ext:odl",
+    "lem:classification",
+    "lem:half",
+    "lem:moore",
+    "lem:init",
+    "lem:heavy",
+    "lem:view",
+    "prop:reduction-time",
+    "lem:range",
+    "ext:ln",
+    "ext:bs",
+    "lem:sparse",
+    "ext:bli"
+  ],
+  "discharge": [
+    {
+      "edge": [
+        "lem:init",
+        "thm:extraction"
+      ],
+      "by": [
+        "new:view-coefficients"
+      ],
+      "argument": "Source pairs use (e). The received target difference has zero stacks, so (b) and (c) give the same $\\varepsilon_f$ bound for a formally distinct pair at every $r$. Average over $r$ and union over group pairs."
+    },
+    {
+      "edge": [
+        "prop:reduction-time",
+        "cor:ext-error"
+      ],
+      "by": [
+        "new:circuit-time"
+      ],
+      "argument": "Both reductions meet the stated t_R including advice and oracle sampling. The supremum of MSIS advantages at that time bounds s_b."
+    },
+    {
+      "edge": [
+        "lem:classification",
+        "lem:extractor"
+      ],
+      "by": [
+        "new:tensor-witness"
+      ],
+      "argument": "The witness conclusion has the identical rank, usability and kernel hypotheses."
+    },
+    {
+      "edge": [
+        "lem:range",
+        "thm:correct"
+      ],
+      "by": [
+        "new:rounded-range"
+      ],
+      "argument": "The two support bounds match exactly."
+    },
+    {
+      "edge": [
+        "ext:odl",
+        "lem:inverse"
+      ],
+      "by": [
+        "new:fiber-count"
+      ],
+      "argument": "Rank-$d$ integer-box fibers have density at most $g^{-d}$."
+    },
+    {
+      "edge": [
+        "lem:view",
+        "lem:extractor"
+      ],
+      "by": [
+        "new:view-coefficients"
+      ],
+      "argument": "Use usability and equality of stacks for formally equal expressions."
+    },
+    {
+      "edge": [
+        "lem:view",
+        "lem:reduction"
+      ],
+      "by": [
+        "new:view-coefficients"
+      ],
+      "argument": "Use the passing and tie clauses, paired-leaf support and cell/row identification."
+    },
+    {
+      "edge": [
+        "lem:view",
+        "lem:charged"
+      ],
+      "by": [
+        "new:view-coefficients"
+      ],
+      "argument": "Use (c),(e) for nonidentities and (a) for the fiber equations. A key match has plain corner one by (a). At a formally nonzero difference, zero mark stack means both sectors vanish, so (b) would force formal zero."
+    },
+    {
+      "edge": [
+        "lem:heavy",
+        "lem:reduction"
+      ],
+      "by": [
+        "new:fiber-count",
+        "lem:inverse",
+        "new:kernel-packing"
+      ],
+      "argument": "Under (P3)/(I5), $g^{-4}<\\mu_{\\rm tr}<\\theta$ excludes rank four or more by the fiber bound. A kernel vector has $v_0=0$ since $z(v)$ has constant coefficient $v_0$, and $\\operatorname{gp}(v^\\top)\\ge\\operatorname{gp}(\\mathbf W)>\\theta$. Inversion gives its short multiple; packing gives the nonzero solution and norm bound."
+    },
+    {
+      "edge": [
+        "lem:heavy",
+        "lem:extractor"
+      ],
+      "by": [
+        "new:fiber-count"
+      ],
+      "argument": "For rank at least four, $\\operatorname{gp}(\\mathbf W)\\le g^{-4}<\\theta$ by the fiber bound and (P3)/(I5)."
+    },
+    {
+      "edge": [
+        "lem:half",
+        "cor:ext-error"
+      ],
+      "by": [
+        "ext:br"
+      ],
+      "argument": "Put $p=\\Pr[\\mathsf{Tgt}]$ and $f=(f_0+f_1)/2$. By the independent-bit coupling the no-target correct-guess event has mass $(1-p)/2$. The target failure mass is $f\\le p$, so total correct-guess failure is at most $(1-p)/2+f\\le1/2+f/2$."
+    },
+    {
+      "edge": [
+        "lem:range",
+        "prop:efficiency"
+      ],
+      "by": [
+        "new:rounded-range"
+      ],
+      "argument": "The second moment bounds agree since (1+N/4)/12=(N+4)/48."
+    },
+    {
+      "edge": [
+        "lem:sparse",
+        "lem:regularize"
+      ],
+      "by": [
+        "new:sparse-box"
+      ],
+      "argument": "Part (b) gives the same transition bound under the same hypotheses."
+    },
+    {
+      "edge": [
+        "lem:sparse",
+        "lem:inverse"
+      ],
+      "by": [
+        "new:sparse-box"
+      ],
+      "argument": "Part (a) gives the same full-dimensional fiber bound."
+    }
+  ],
+  "format": "paper-dag-substitution/1",
+  "edges": [
+    {
+      "from": "blob:admissibility",
+      "to": "new:view-coefficients",
+      "kind": "background"
+    },
+    {
+      "from": "blob:bound-e",
+      "to": "new:view-coefficients",
+      "kind": "background"
+    },
+    {
+      "from": "blob:bqs",
+      "to": "new:view-coefficients",
+      "kind": "background"
+    },
+    {
+      "from": "blob:cancellation-mask",
+      "to": "new:view-coefficients",
+      "kind": "background"
+    },
+    {
+      "from": "blob:copies-ties",
+      "to": "new:view-coefficients",
+      "kind": "background"
+    },
+    {
+      "from": "blob:enc",
+      "to": "new:view-coefficients",
+      "kind": "background"
+    },
+    {
+      "from": "blob:expressions",
+      "to": "new:view-coefficients",
+      "kind": "background"
+    },
+    {
+      "from": "blob:forms-weights",
+      "to": "new:view-coefficients",
+      "kind": "background"
+    },
+    {
+      "from": "blob:ggm",
+      "to": "new:view-coefficients",
+      "kind": "background"
+    },
+    {
+      "from": "blob:qap",
+      "to": "new:view-coefficients",
+      "kind": "background"
+    },
+    {
+      "from": "blob:stacks-gp",
+      "to": "new:view-coefficients",
+      "kind": "background"
+    },
+    {
+      "from": "blob:tests",
+      "to": "new:view-coefficients",
+      "kind": "background"
+    },
+    {
+      "from": "ext:sz",
+      "to": "new:view-coefficients",
+      "kind": "uses",
+      "demand": "A polynomial of degree d_f that vanishes on all valid coins is zero; otherwise it vanishes with probability at most d_f/(q − D)."
+    },
+    {
+      "from": "lem:degree",
+      "to": "new:view-coefficients",
+      "kind": "uses",
+      "demand": "ϖ·(val(D) − χκ) is a polynomial of total degree at most d_f in the coins. This is what makes “identically” a polynomial identity and what gives ε_f."
+    },
+    {
+      "from": "lem:qap",
+      "to": "new:view-coefficients",
+      "kind": "uses",
+      "demand": "For symmetric W, either QAP division identity with a polynomial quotient and an allowed remainder implies that W passes. The key identity subtracts W_00 L_ρ."
+    },
+    {
+      "from": "blob:bqs",
+      "to": "new:kernel-packing",
+      "kind": "background"
+    },
+    {
+      "from": "blob:forms-weights",
+      "to": "new:kernel-packing",
+      "kind": "background"
+    },
+    {
+      "from": "blob:kernel-short",
+      "to": "new:kernel-packing",
+      "kind": "background"
+    },
+    {
+      "from": "blob:msis",
+      "to": "new:kernel-packing",
+      "kind": "background"
+    },
+    {
+      "from": "blob:bqs",
+      "to": "new:tensor-witness",
+      "kind": "background"
+    },
+    {
+      "from": "blob:copies-ties",
+      "to": "new:tensor-witness",
+      "kind": "background"
+    },
+    {
+      "from": "blob:forms-weights",
+      "to": "new:tensor-witness",
+      "kind": "background"
+    },
+    {
+      "from": "blob:kernel-short",
+      "to": "new:tensor-witness",
+      "kind": "background"
+    },
+    {
+      "from": "blob:stacks-gp",
+      "to": "new:tensor-witness",
+      "kind": "background"
+    },
+    {
+      "from": "blob:tests",
+      "to": "new:tensor-witness",
+      "kind": "background"
+    },
+    {
+      "from": "blob:admissibility",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:bqs",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:copies-ties",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:enc",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:expressions",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:forms-weights",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:ggm",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:msis",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:qap",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:records",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:reductions",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:rom",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "blob:sampler-search",
+      "to": "new:circuit-time",
+      "kind": "background"
+    },
+    {
+      "from": "lem:lift",
+      "to": "new:circuit-time",
+      "kind": "uses",
+      "demand": "T_(LIFT) is polynomial in N and log q."
+    },
+    {
+      "from": "blob:lattices",
+      "to": "new:fiber-count",
+      "kind": "background"
+    },
+    {
+      "from": "blob:sampler-search",
+      "to": "new:fiber-count",
+      "kind": "background"
+    },
+    {
+      "from": "blob:stacks-gp",
+      "to": "new:fiber-count",
+      "kind": "background"
+    },
+    {
+      "from": "blob:sampler-search",
+      "to": "new:rounded-range",
+      "kind": "background"
+    },
+    {
+      "from": "lem:lattice-facts",
+      "to": "new:sparse-box",
+      "kind": "uses",
+      "demand": "V^⊤Z^(d+1) = Z^(d′) for the saturated normal lattice."
+    },
+    {
+      "from": "ext:cas",
+      "to": "new:sparse-box",
+      "kind": "uses",
+      "demand": "A basis of a saturated sublattice of Z^d extends to a basis of Z^d."
+    },
+    {
+      "from": "blob:inverse-conditions",
+      "to": "new:sparse-box",
+      "kind": "background"
+    },
+    {
+      "from": "blob:lattices",
+      "to": "new:sparse-box",
+      "kind": "background"
+    },
+    {
+      "from": "blob:trimming",
+      "to": "new:sparse-box",
+      "kind": "background"
+    },
+    {
+      "from": "new:circuit-time",
+      "to": "new:view-coefficients",
+      "kind": "uses",
+      "demand": "At fixed valid non-search coordinates only $H^{\\mathrm{leg}}_{j,1}$ and its alpha copy among the received exponents depend on $r$."
+    }
+  ]
 }
