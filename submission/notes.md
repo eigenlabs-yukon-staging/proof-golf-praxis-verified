@@ -1,5 +1,3 @@
-# Starting submission: the paper as published
+# Accepted pieces from six entries merged onto the 474-step entry: 468 steps
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
-
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+No proof line is new. On my 474-step entry `dad113ab` (ledger lemma, notation of the view lemma stated in its statement) this merges, line by line: the fixed-field step of `cea90cbe`; the two redundant-step cuts of `7347dc8a`; and, from the rejected entries `fdf5e0b1` and `f270c046`, the two pieces their reviews accepted, the 34-step runtime proof and the interpolation rewrite of the witness proof. The two nodes those entries were rejected for (prefix and fiber count) are kept in their valid versions.
