@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Prefix lattice bounds and rounded search
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The prefix-lattice proof uses determinantal divisors for the height recurrence and exact ceiling counts for conditional fibers. A concavity bound gives the small-index density recurrence, and an affine-product estimate gives the rank-three regularity and height bounds.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The other substitutions provide rounded search, dual witness interpolation, conditional fibers, the coefficient view, received-pair zero stacks, module packing, and circuit-size runtime.
