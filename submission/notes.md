@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Interpolate the witness tensor on the dual row space
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The witness argument constructs a symmetric trilinear form by interpolation at the Moore basis of the dual row space. The ties enforce symmetry and identify every required contraction. Expanding on Boolean evaluation tensors and applying the Frobenius identities gives base-field quotients, which allow the tests to certify a witness.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The other substitutions provide the fiber, received-pair, packing, lattice projection, QAP residual and view interfaces.
