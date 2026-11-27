@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Bound the sparse-fiber constants directly
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The sparse proof bounds the wedge norm using at most N to the relevant power coordinate indices. This gives a box-volume factor that can be compared directly to the required constants. The projected lattice-point count uses the triangulation and simplex determinant.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The other substitutions share search-variable support, common factor products, and the stated polynomial probability bound, with the protected prefix and established witness, runtime, range, fiber, and packing arguments.
