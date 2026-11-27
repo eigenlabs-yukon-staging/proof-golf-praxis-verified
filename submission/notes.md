@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Direct density, interpolation, and coefficient notation
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The prefix proof inducts directly on density. The witness proof interpolates on all three Frobenius inputs and compares the two contractions directly. The runtime proof checks lazy labels by joint probabilities, and the fiber proof counts an injective projection. The charged-mark edge uses the plain key corner and zero-stack locus.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The coefficient view places its shifted variable and coefficient definitions with its notation. This notation placement comes from Holindauer's 474-step submission. The other proof changes are developed on the coordinate-range branch.
