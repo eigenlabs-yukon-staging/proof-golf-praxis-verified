@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Separate the closing tensor deductions and store advised leaf circuits
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The witness proof uses the scalar proportionality contradiction followed by a separate conclusion for the zeroth coordinate form. It applies the constraint equivalence before a separate witness conclusion. The runtime stores the fixed Horner evaluation graphs with their coefficients as advice.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The sparse proof uses the projected quotient, simplex count, and direct ellipsoid volume.
