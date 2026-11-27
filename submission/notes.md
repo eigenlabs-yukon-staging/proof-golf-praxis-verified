@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Share the search-variable support fact between the runtime and view proofs
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The runtime proof gives the search-variable dependence of the received exponents. The view uses that statement and its established coefficient support to conclude that a zero-stack identity is independent of the search vector.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The other substitutions use common quotient, remainder, and mask formulas, separate moment-matrix test equivalences, the protected prefix proof, and the established sparse-fiber, conditional fiber, runtime, search, and packing bounds.
