@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Rounded search with a common ceiling expression
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+This branch proves the two search bounds using one ceiling expression for the independent and centered samplers. The coefficient-view proof evaluates the key corner directly and uses the protected QAP criterion.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The other substitutions provide dual witness interpolation, conditional fibers, received-pair zero stacks, module packing, circuit-size runtime, and bounded-prefix lifting.
