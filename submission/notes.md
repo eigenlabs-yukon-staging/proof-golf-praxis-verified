@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Use the stated polynomial identity result
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The coefficient view uses the incoming Schwartz–Zippel demand to turn an identity on valid coins into a polynomial identity. This proof change follows Holindauer's 468-step submission.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The witness argument gives separate steps for the linear combination, symmetry, row support, column support and descent. The sparse-fiber proof separates its exterior-coordinate expansion, Euclidean estimate and singular-value calculation. The protected prefix proof and the validated conditional fiber proof supply their original demands.
