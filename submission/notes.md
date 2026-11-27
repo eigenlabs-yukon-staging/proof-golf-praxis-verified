@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Deferred circuit evaluation and affine gradients
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The runtime proof uses a logged circuit and chronological record scan for the private monitor. At each recovery point the gradient circuit is affine in the search variables, so reverse linear substitution computes its input coefficients. The runtime uses the protected lifting premise.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The other substitutions give rounded search and prefix counts, conditional fibers, Frobenius basis interpolation, a joint coefficient view, received-pair zero stacks, and module packing.
