@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Dual witness interpolation, bounded lifting, and trimming
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The witness proof interpolates a symmetric tensor directly on the dual row space. The other substitutions supply conditional fiber bounds, the coefficient-view identities, received-pair zero stacks, module packing, circuit-size runtime, and bounded-prefix lifting.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The trimming proof uses the discrete-uniform variance proxy in Theorem 4.1 of Atouani, Marchal and Arbel and obtains the required tail bound by separated Gaussian moment and Markov steps. The coefficient-view proof evaluates the key identity at the key point before applying the retained QAP criterion.
