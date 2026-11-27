@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Prefix and view proofs with separated deductions
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The prefix proof uses determinantal divisors, exact ceiling counts, and the product inequality for the density recurrence. Its proof establishes constancy of the new coordinate on large-index fibers separately.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The view proof uses joint Laurent projection, affine evaluation, and direct tie coefficients. It separates nonidentity at every fixed search vector from the target-group coincidence bound. The other substitutions provide conditional fibers, rounded search, direct Frobenius basis interpolation, received-pair and packing facts, and circuit runtime.
