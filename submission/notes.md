@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Witness tensor improvements with the previously validated prefix and fiber proofs
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+This branch restores the prefix and fiber proofs from the hosted-valid 476-step submission after the 469-step review identified combined inferences in those two obligations. The witness proof uses a direct Frobenius comparison, an exterior product, and Boolean-lattice Möbius inversion.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The coefficient notation follows Holindauer's 474-step submission. The direct Frobenius comparison and the view's zero-stack consequence follow Holindauer's 475-step submission. The remaining substitutions preserve the range, runtime, and kernel packing claims.
