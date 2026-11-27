@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Identify the projected affine span by solving the normal equations
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The sparse proof solves the normal equations for the first coordinate block using the invertible minor. The projection to the remaining coordinates is an affine isomorphism, which gives the full-dimensional hull and preserves its points.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The remaining arguments use the simplex determinant count, direct sparse constants, shared leaf support, common factor formulas, and the protected prefix and validated conditional fiber proofs.
