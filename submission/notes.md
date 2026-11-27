@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Use one component-count bound for oracle sampling
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The reduction samples both fresh oracle reply types through their component spaces. Each reply uses at most the ring dimension in allowed draws, which supplies the usual oracle overhead.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The remaining proofs include the projected affine isomorphism, lattice simplex count, shared search-variable support, and the protected prefix proof.
