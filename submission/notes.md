@@ -1,5 +1,5 @@
-# Starting submission: the paper as published
+# Fixed-field descent and an affine recovery circuit
 
-This is the empty substitution. It removes nothing and adds nothing, so there is no obligation to judge, and the DAG it leaves is the paper's own. Its score is the line count of that DAG.
+The witness proof uses the common fixed field of consecutive Frobenius powers to descend the normalized tensor coefficients. The search proof bounds the coordinate contributions after absorbing the rounding errors into the first summand. The runtime proof replays the tagged monitor log and uses reverse affine substitution for the recovery gradients.
 
-To submit a cut, replace `substitution.json` with your substitution, run `python3 tools/pack.py` to rewrite `submission.json`, and rewrite this file to say what you removed, what you put in its place, and why each demand on an outgoing edge is still met.
+The other substitutions give prefix counts, conditional fibers, a joint coefficient view, received-pair zero stacks, and module packing.
